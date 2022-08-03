@@ -35,4 +35,6 @@ export default {
   'index-layout.menu.roles.all': 'All users have permissions',
   'index-layout.menu.roles.user': 'Users have permission',
   'index-layout.menu.roles.test': 'Tests have permission',
+
+  'index-layout.menu.tailwind': 'Tailwind',
 };

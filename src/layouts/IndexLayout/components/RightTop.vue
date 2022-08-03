@@ -26,7 +26,7 @@
                         </a-link>
                       </template>
                     </template>             
-                    <bread-crumbs v-else class="breadcrumb" :list="breadCrumbs"></bread-crumbs>
+                    <!-- <bread-crumbs v-else class="breadcrumb" :list="breadCrumbs"></bread-crumbs> -->
                 </div>
             </div>
             <div class="indexlayout-top-menu-right">

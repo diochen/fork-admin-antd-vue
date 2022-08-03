@@ -35,4 +35,6 @@ export default {
   'index-layout.menu.roles.all': '用戶都有權限',
   'index-layout.menu.roles.user': 'Users有權限',
   'index-layout.menu.roles.test': 'Tests有權限',
+
+  'index-layout.menu.tailwind': 'Tailwind',
 };

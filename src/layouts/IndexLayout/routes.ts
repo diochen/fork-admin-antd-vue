@@ -23,7 +23,7 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
         icon: 'edit',
         title: 'index-layout.menu.home.custom-breadcrumbs',
         path: 'custombreadcrumbs',
-        component: ()=> import('@/views/custom-breadcrumbs/index.vue'),
+        component: () => import('@/views/custom-breadcrumbs/index.vue'),
         breadcrumb: [
           {
             title: 'index-layout.menu.home.custom-breadcrumbs',
@@ -38,8 +38,8 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
             path: 'http://liqingsong.cc',
           },
         ],
-        tabNavCloseBefore: (close: () => void): void=> {
-          if(window.confirm('确认关闭吗')) {
+        tabNavCloseBefore: (close: () => void): void => {
+          if (window.confirm('确认关闭吗')) {
             close();
           }
         }
@@ -60,45 +60,45 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
     path: '/component',
     redirect: '/component/icon/svg',
     component: BlankLayout,
-    children:[
-        {
-            icon: 'icon',
-            title: 'index-layout.menu.component.icon',
-            path: 'icon',
-            redirect: '/component/icon/svg',
-            component: BlankLayout,
-            children: [
-                {
-                    title: 'index-layout.menu.component.icon.svg',
-                    path: 'svg',
-                    component: () => import('@/views/component/icon/svg/index.vue'),
-                },
-                {
-                  title: 'index-layout.menu.component.icon.font',
-                  path: 'font',
-                  component: () => import('@/views/component/icon/font/index.vue'),
-                },
-            ]
-        },
-        {
-            icon: 'editor',
-            title: 'index-layout.menu.component.editor',
-            path: 'editor',
-            redirect: '/component/editor/tuieditor',
-            component: BlankLayout,
-            children: [
-                {
-                    title: 'index-layout.menu.component.editor.tui-editor',
-                    path: 'tuieditor',
-                    component: () => import('@/views/component/editor/tui-editor/index.vue'),
-                },
-                {
-                    title: 'index-layout.menu.component.editor.ckeditor',
-                    path: 'ckeditor',
-                    component: () => import('@/views/component/editor/ckeditor/index.vue'),
-                }
-            ]
-        }
+    children: [
+      {
+        icon: 'icon',
+        title: 'index-layout.menu.component.icon',
+        path: 'icon',
+        redirect: '/component/icon/svg',
+        component: BlankLayout,
+        children: [
+          {
+            title: 'index-layout.menu.component.icon.svg',
+            path: 'svg',
+            component: () => import('@/views/component/icon/svg/index.vue'),
+          },
+          {
+            title: 'index-layout.menu.component.icon.font',
+            path: 'font',
+            component: () => import('@/views/component/icon/font/index.vue'),
+          },
+        ]
+      },
+      {
+        icon: 'editor',
+        title: 'index-layout.menu.component.editor',
+        path: 'editor',
+        redirect: '/component/editor/tuieditor',
+        component: BlankLayout,
+        children: [
+          {
+            title: 'index-layout.menu.component.editor.tui-editor',
+            path: 'tuieditor',
+            component: () => import('@/views/component/editor/tui-editor/index.vue'),
+          },
+          {
+            title: 'index-layout.menu.component.editor.ckeditor',
+            path: 'ckeditor',
+            component: () => import('@/views/component/editor/ckeditor/index.vue'),
+          }
+        ]
+      }
     ]
   },
 
@@ -119,17 +119,17 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
           {
             title: 'index-layout.menu.pages.list.basic',
             path: 'basic',
-            component: ()=> import('@/views/pagesample/list/basic/index.vue'),
+            component: () => import('@/views/pagesample/list/basic/index.vue'),
           },
           {
             title: 'index-layout.menu.pages.list.table',
             path: 'table',
-            component: ()=> import('@/views/pagesample/list/table/index.vue'),
+            component: () => import('@/views/pagesample/list/table/index.vue'),
           },
           {
             title: 'index-layout.menu.pages.list.highly-adaptive-table',
             path: 'highlyadaptivetable',
-            component: ()=> import('@/views/pagesample/list/highly-adaptive-table/index.vue'),
+            component: () => import('@/views/pagesample/list/highly-adaptive-table/index.vue'),
           },
           {
             title: 'index-layout.menu.pages.list.search',
@@ -140,8 +140,8 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
               {
                 title: 'index-layout.menu.pages.list.search.table',
                 path: 'table',
-                component: ()=> import('@/views/pagesample/list/search/table/index.vue'),
-              }              
+                component: () => import('@/views/pagesample/list/search/table/index.vue'),
+              }
             ],
           },
         ],
@@ -156,12 +156,12 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
           {
             title: 'index-layout.menu.pages.form.basic',
             path: 'basic',
-            component: ()=> import('@/views/pagesample/form/basic/index.vue'),
+            component: () => import('@/views/pagesample/form/basic/index.vue'),
           },
           {
             title: 'index-layout.menu.pages.form.complex',
             path: 'complex',
-            component: ()=> import('@/views/pagesample/form/complex/index.vue'),
+            component: () => import('@/views/pagesample/form/complex/index.vue'),
           },
         ],
       },
@@ -175,18 +175,18 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
           {
             title: 'index-layout.menu.pages.detail.basic',
             path: 'basic',
-            component: ()=> import('@/views/pagesample/detail/basic/index.vue'),
+            component: () => import('@/views/pagesample/detail/basic/index.vue'),
             tabNavType: 'querypath',
           },
           {
             title: 'index-layout.menu.pages.detail.module',
             path: 'module',
-            component: ()=> import('@/views/pagesample/detail/module/index.vue'),
+            component: () => import('@/views/pagesample/detail/module/index.vue'),
           },
           {
             title: 'index-layout.menu.pages.detail.table',
             path: 'table',
-            component: ()=> import('@/views/pagesample/detail/table/index.vue'),
+            component: () => import('@/views/pagesample/detail/table/index.vue'),
           },
         ],
       },
@@ -204,23 +204,33 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
         icon: 'detail',
         title: 'index-layout.menu.roles.all',
         path: 'all',
-        component: ()=> import('@/views/roles/all/index.vue'),
+        component: () => import('@/views/roles/all/index.vue'),
       },
       {
         icon: 'detail',
         roles: ['user'],
         title: 'index-layout.menu.roles.user',
         path: 'user',
-        component: ()=> import('@/views/roles/user/index.vue'),
+        component: () => import('@/views/roles/user/index.vue'),
       },
       {
         icon: 'detail',
         roles: ['test'],
         title: 'index-layout.menu.roles.test',
         path: 'test',
-        component: ()=> import('@/views/roles/test/index.vue'),
+        component: () => import('@/views/roles/test/index.vue'),
       },
     ],
+  },
+
+  {
+    icon: 'permissions',
+    title: 'index-layout.menu.tailwind',
+    path: '/tailwind',
+    // redirect: '/roles/all',
+    // component: BlankLayout,
+    component: () => import('@/views/tailwind/index.vue'),
+    children: []
   },
 
 ];

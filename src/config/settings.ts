@@ -5,67 +5,67 @@ export type Theme = 'dark' | 'light';
 export type NavMode = 'inline' | 'horizontal';
 
 /**
- * 站点配置
+ * 站點配置
  * @author LiQingSong
  */
 export interface SettingsType {
     /**
-     * 站点名称
+     * 站點名稱
      */
     siteTitle: string;
 
     /**
-     * 站点首页路由
+     * 站點首頁路由
      */
     homeRouteItem: RoutesDataItem;
 
     /**
-     * 站点本地存储Token 的 Key值
+     * 站點在地存儲Token 的 Key值
      */
     siteTokenKey: string;
   
     /**
-     * Ajax请求头发送Token 的 Key值
+     * Ajax請求頭髮送Token 的 Key值
      */
     ajaxHeadersTokenKey: string;
   
     /**
-     * Ajax返回值不参加统一验证的api地址
+     * Ajax返回值不參加統一驗證的api地址
      */
     ajaxResponseNoVerifyUrl: string[];
 
     /**
-     * iconfont.cn 项目在线生成的 js 地址
+     * iconfont.cn 項目在線生成的 js 地址
      */
     iconfontUrl: string[];
 
     /**
-     * Layout 头部固定开启
+     * Layout 頭部固定開啓
      */
      headFixed: boolean;
 
      /**
-      * Layout tab菜单开启
+      * Layout tab菜單開啓
       */
      tabNavEnable: boolean;
  
      /**
-      * IndexLayout 顶部菜单开启
+      * IndexLayout 頂部菜單開啓
       */
      topNavEnable: boolean;
  
      /**
-      * UniversalLayout 模板主题
+      * UniversalLayout 模闆主題
       */
      theme: Theme;
  
      /**
-       * UniversalLayout 导航模式
+       * UniversalLayout 導航模式
        */
      navMode: NavMode;
  
      /**
-      * UniversalLayout 左侧侧边固定开启
+      * UniversalLayout 左側側邊固定開啓
       */
      leftSiderFixed: boolean;
 }
@@ -81,19 +81,19 @@ const settings: SettingsType = {
     siteTokenKey: 'admin_antd_vue_token',
     ajaxHeadersTokenKey: 'x-token',
     ajaxResponseNoVerifyUrl: [
-        '/user/login', // 用户登录
-        '/user/info', // 获取用户信息
+        '/user/login', // 用戶登入
+        '/user/info', // 獲取用戶信息
     ],
     iconfontUrl: [],
 
-    /* 以下是针对所有 Layout 扩展字段 */
+    /* 以下是針對所有 Layout 擴展字段 */
     headFixed: true,
     tabNavEnable: true,
 
-    /* 以下是针对 IndexLayout 扩展字段 */
+    /* 以下是針對 IndexLayout 擴展字段 */
     topNavEnable: true,
 
-    /* 以下是针对 UniversalLayout 扩展字段 */
+    /* 以下是針對 UniversalLayout 擴展字段 */
     theme: 'dark',
     navMode: 'inline',
     leftSiderFixed: true,
