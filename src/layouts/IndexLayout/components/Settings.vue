@@ -18,7 +18,7 @@
         <SettingOutlined :style="{ fontSize: '20px', color: '#fcfcfc' }" />
     </div>
     <a-drawer
-        title="系统布局配置"
+        title="係統佈局配置"
         :visible="visible"
         @close="close"
         :bodyStyle="{ padding: '10px' }"
@@ -28,19 +28,19 @@
                 <template #actions>
                     <a-switch :checked="topNavEnable" @change="onChangeTopNavEnable" />
                 </template>
-                启用顶部导航
+                啓用頂部導航
             </a-list-item>
             <a-list-item>
                 <template #actions>
                     <a-switch :checked="headFixed" @change="onChangeHeadFixed" :disabled="disabledHeadFixed" />
                 </template>
-                固定右侧头部
+                固定右側頭部
             </a-list-item>
             <a-list-item>
                 <template #actions>
                     <a-switch :checked="tabNavEnable" @change="onChangeTabNavEnable" />
                 </template>
-                启用TabNav
+                啓用TabNav
             </a-list-item>            
         </a-list>
     </a-drawer>
@@ -74,23 +74,23 @@ export default defineComponent({
         const store = useStore<{global: GlobalStateType}>(); 
 
         const visible = ref<boolean>(false);
-        // 关闭
+        // 關閉
         const close = (): void => {
             visible.value = false;
         }
-        // 显示
+        // 顯示
         const show = (): void => {
             visible.value = true;
         }
 
-        // 固定右侧头部
+        // 固定右側頭部
         const disabledHeadFixed = ref<boolean>(true);
         const headFixed = computed<boolean>(()=> store.state.global.headFixed);
         const onChangeHeadFixed = (v: boolean): void => {
             store.commit('global/setHeadFixed', v);
         }
 
-        // 启用顶部导航
+        // 啓用頂部導航
         const topNavEnable = computed<boolean>(()=> store.state.global.topNavEnable);
         const onChangeTopNavEnable = (v: boolean): void => {
             store.commit('global/setTopNavEnable', v);
@@ -104,7 +104,7 @@ export default defineComponent({
 
         }  
         
-        // 启用TabNav
+        // 啓用TabNav
         const tabNavEnable = computed<boolean>(()=> store.state.global.tabNavEnable);
         const onChangeTabNavEnable = (v: boolean): void => {
             store.commit('global/setTabNavEnable', v);

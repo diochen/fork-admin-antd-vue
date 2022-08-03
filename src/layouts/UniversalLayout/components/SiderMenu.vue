@@ -23,16 +23,16 @@ const { menuData, routeItem, mode, theme, collapsed } = toRefs(props)
 
 const store = useStore<{ user: UserStateType; }>();
 
-// 有权限的菜单
+// 有權限的菜單
 const permissionMenuData = computed<RoutesDataItem[]>(()=> getPermissionMenuData(store.state.user.currentUser.roles, menuData.value))
 
-// 左侧选择菜单key
+// 左側選擇菜單key
 const selectedKeys = computed<string[]>(()=>{
   const selectedKey = getSelectLeftMenuPath(routeItem.value);
   return [selectedKey]
 });
 
-// 左侧展开菜单keys
+// 左側展開菜單keys
 const openKeys = ref<string[]>(mode.value === 'inline'? routeItem.value.parentPath || []: []);
 watch([collapsed],()=>{
   if (!collapsed.value && mode.value === 'inline') {
@@ -44,7 +44,7 @@ watch([collapsed],()=>{
   }
 })
 
-// 左侧菜单展开收起
+// 左側菜單展開收起
 const openChange = (key: any) => {
   openKeys.value = key;
 }

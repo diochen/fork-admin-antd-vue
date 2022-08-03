@@ -7,9 +7,9 @@ import { ViteDevServer, Plugin } from 'vite';
 import { Module, ModuleTree } from 'vuex';
 
 /**
- * 自定义项目 Store Module 类型
- * 为自动导入的 store 做类型限制
- * [@/store文件夹下定义的 store]与[@/views文件夹下定义的`文件store.ts`] 必须继承此类型
+ * 自定義項目 Store Module 類型
+ * 為自動導入的 store 做類型限製
+ * [@/store檔案夾下定義的 store]與[@/views檔案夾下定義的`文件store.ts`] 必須繼承此類型
  * @author LiQingSong
  */
 export interface StoreModuleType<S> extends Module<S, S> {
@@ -18,32 +18,32 @@ export interface StoreModuleType<S> extends Module<S, S> {
 }
 
 /**
- * 自动导入 Store
+ * 自動導入 Store
  * @author LiQingSong
  */
 export function importAllStore<S> (): ModuleTree<S> {
     const modules: ModuleTree<S> = {};
     try {
-        // 导入 @/views 下文件，包含子目录，文件名为：store.ts
+        // 導入 @/views 下文件，包含子目錄，文件名為：store.ts
         const viewsRequireModules = import.meta.globEager('../views/**/store.ts');
         for (const path in viewsRequireModules) {
             const modulesConent = viewsRequireModules[path];
             if(modulesConent.default) {
               const { name, ...module } = modulesConent.default; 
-              // 获取 PascalCase 命名
+              // 獲取 PascalCase 命名
               const modulesName = name || path.replace(/^\.\/(.*)\.\w+$/, "$1");
 
               modules[modulesName] = { ...module }; 
             }
         }
         
-        // 导入 @/store 下文件 
+        // 導入 @/store 下文件 
         const requireModules = import.meta.globEager('../store/*.ts');
         for (const path in requireModules) {
             const modulesConent = requireModules[path];
             if(modulesConent.default) {
               const { name, ...module } = modulesConent.default; 
-              // 获取 PascalCase 命名
+              // 獲取 PascalCase 命名
               const modulesName = name || path.replace(/^\.\/(.*)\.\w+$/, "$1");
 
               modules[modulesName] = { ...module }; 
@@ -58,7 +58,7 @@ export function importAllStore<S> (): ModuleTree<S> {
 }
 
 /**
- * 验证 Store 位置
+ * 驗證 Store 位置
  * @author LiQingSong
  */
 export function validateStorePath(filePath: string): boolean {

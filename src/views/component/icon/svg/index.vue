@@ -18,19 +18,19 @@
 
                 <a-list>
                     <template #header><h2>{{t('page.icon.svg.remark.title')}}</h2></template>
-                    <a-list-item> 组件位置： @/components/IconSvg</a-list-item>
-                    <a-list-item> 创建原因：方便自定义使用svg图标 </a-list-item>
+                    <a-list-item> 組件位置： @/components/IconSvg</a-list-item>
+                    <a-list-item> 創建原因：方便自定義使用svg圖示 </a-list-item>
                 </a-list>
                 <a-list>
                     <template #header><h2>使用方法：</h2></template>
                     <a-list-item>
-                        1、下载或制作svg文件，存放到 <a-tag>@/assets/iconsvg</a-tag>
-                        目录下，自己可以对此目录下svg进行删减。
+                        1、下載或製作svg文件，存放到 <a-tag>@/assets/iconsvg</a-tag>
+                        目錄下，自己可以對此目錄下svg進行刪減。
                     </a-list-item>
                     <a-list-item>
-                        2、项目会根据 <a-tag>@/assets/iconsvg/svgo.yml</a-tag>
-                        配置自动压缩精简svg，也可以独立运行 <a-tag>yarn svgo</a-tag> 或
-                        <a-tag>npm run svgo</a-tag>压缩精简svg
+                        2、項目會根據 <a-tag>@/assets/iconsvg/svgo.yml</a-tag>
+                        配置自動壓縮精簡svg，也可以獨立運行 <a-tag>yarn svgo</a-tag> 或
+                        <a-tag>npm run svgo</a-tag>壓縮精簡svg
                     </a-list-item>
                     <a-list-item>3、使用Demo：</a-list-item>
                     <a-list-item>import IconSvg from '@/components/IconSvg';</a-list-item>

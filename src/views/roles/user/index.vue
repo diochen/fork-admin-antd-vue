@@ -1,7 +1,7 @@
 <template>
     <div className="layout-main-conent">
         <a-card :bordered="false">
-           此页面只有 user 与 admin 账号可以查看。
+           此頁麵隻有 user 與 admin 賬號可以檢視。
         </a-card>
     </div>
 </template>

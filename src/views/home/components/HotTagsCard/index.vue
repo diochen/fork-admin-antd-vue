@@ -39,10 +39,10 @@ export default defineComponent({
         const store = useStore<{ Home: HomeStateType}>();
         const { t } = useI18n();
 
-        // 分页
+        // 分頁
         const pagination = computed<PaginationConfig>(() => store.state.Home.hotTagsData.pagination);
 
-        // 数据
+        // 數據
         const list = computed<TableListItem[]>(()=> store.state.Home.hotTagsData.list);
 
         // 列
@@ -65,7 +65,7 @@ export default defineComponent({
             },
         ];
 
-        // 读取数据 func
+        // 讀取數據 func
         const loading = ref<boolean>(true);
         const getList = async (current: number): Promise<void> => {
             loading.value = true;

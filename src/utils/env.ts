@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * nodejs 加载 .env
+ * nodejs 加載 .env
  * @author LiQingSong
  */
 export function setNodeEnv(NODE_ENV: string, envFile: string = path.resolve(__dirname, '../../.env')) {

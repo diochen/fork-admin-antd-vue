@@ -8,7 +8,7 @@
 
       <template #content>
         <div class="setting">
-          <div class="setting-title">页面风格</div>
+          <div class="setting-title">頁麵風格</div>
           <div class="setting-radio">
             <div class="setting-radio-item style-dark" title="dark" @click="setTheme('dark')">
               <icon-svg v-if="theme==='dark'" class="choose-icon" type="tick"></icon-svg>
@@ -20,7 +20,7 @@
 
           <a-divider style="margin: 10px 0;"></a-divider>
 
-          <div class="setting-title">导航模式</div>
+          <div class="setting-title">導航模式</div>
           <div class="setting-radio">
             <div class="setting-radio-item nav-inline" title="inline" @click="setNavMode('inline')">
               <icon-svg v-if="navMode==='inline'" class="choose-icon" type="tick"></icon-svg>
@@ -34,7 +34,7 @@
 
           <div class="setting-list">
             <div class="setting-list-item">
-              <span>固定头部</span>
+              <span>固定頭部</span>
               <span class="setting-list-item-action">
                 <a-switch v-model:checked="headFixed" size="small" />
               </span>
@@ -46,7 +46,7 @@
               </span>
             </div>
             <div class="setting-list-item">
-              <span>固定侧边</span>
+              <span>固定側邊</span>
               <span class="setting-list-item-action">
                 <a-switch v-model:checked="leftSiderFixed" size="small" />
               </span>
@@ -95,21 +95,21 @@ const setNavModeLocal = async (val: string): Promise<boolean> => {
 
 const store = useStore<{global: GlobalStateType;}>();
 
-// 模板主题
+// 模闆主題
 const theme = computed(()=> store.state.global.theme);
 const setTheme = (value: string): void => {
   store.commit('global/setTheme', value);
   setThemeLocal(value);
 }
 
-// 导航模式
+// 導航模式
 const navMode = computed(()=> store.state.global.navMode);
 const setNavMode = (value: string): void => {
   store.commit('global/setNavMode', value);
   setNavModeLocal(value);
 }
 
-// 头部是否固定
+// 頭部是否固定
 const headFixed = computed({
   get: ()=> store.state.global.headFixed,
   set: value => {
@@ -117,7 +117,7 @@ const headFixed = computed({
   }
 })
 
-// 头部tabnav是否开启
+// 頭部tabnav是否開啓
 const tabNavEnable = computed({
   get: ()=> store.state.global.tabNavEnable,
   set: value => {
@@ -125,7 +125,7 @@ const tabNavEnable = computed({
   }
 })
 
-// 左侧侧边固定开启
+// 左側側邊固定開啓
 const leftSiderFixed = computed({
   get: ()=> store.state.global.leftSiderFixed,
   set: value => {

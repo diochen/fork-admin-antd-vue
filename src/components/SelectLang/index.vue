@@ -39,8 +39,8 @@ export default defineComponent({
        
         const locales: string[] = ['zh-CN', 'zh-TW', 'en-US'];
         const languageLabels: {[key: string]: string} = {
-            'zh-CN': '简体中文',
-            'zh-TW': '繁体中文',
+            'zh-CN': '簡體中文',
+            'zh-TW': '正體中文',
             'en-US': 'English',
         };
         const languageIcons: {[key: string]: string} = {
@@ -49,7 +49,7 @@ export default defineComponent({
             'en-US': '🇺🇸',
         };
 
-        // 切换语言
+        // 切換語言
         const changeLang = ({ key }: any): void => setI18nLanguage(key);
 
         return {

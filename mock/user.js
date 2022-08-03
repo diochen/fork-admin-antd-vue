@@ -39,7 +39,7 @@ mock[`GET ${VITE_APP_APIHOST}/user/info`] = (req, res) => {
         res.send({
           code: 10002,
           data: {},
-          msg: '未登录',
+          msg: '未登入',
         });
     }
 

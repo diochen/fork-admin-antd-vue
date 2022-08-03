@@ -11,10 +11,10 @@ import { vitePluginIconSvg } from "./src/components/IconSvg/plugin";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command })=> {
 
-  // 自定义设置 nodejs .env
+  // 自定義設定 nodejs .env
   setNodeEnv(mode);
 
-  // 开发服务器端口
+  // 開發服務器端口
   const port: number =  parseInt(process.env.APP_PORT || '3000');
 
   // 插件

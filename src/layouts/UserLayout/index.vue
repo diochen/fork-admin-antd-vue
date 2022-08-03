@@ -22,13 +22,13 @@ export default defineComponent({
     setup() {
         const route = useRoute();
 
-        // 所有菜单路由
+        // 所有菜單路由
         const menuData = ref<RoutesDataItem[]>(vueRoutes(UserLayoutRoutes,'/user'));
 
-        // 当前路由 item
+        // 當前路由 item
         const routeItem = computed<RoutesDataItem>(()=>getRouteItem(route.path, menuData.value as RoutesDataItem[]));
 
-        // 设置title
+        // 設定title
         useTitle(routeItem);
 
     }

@@ -3,10 +3,10 @@
 </template>
 <script lang="ts">
 /**
- * IndexLayout icon , 主要用于菜单
+ * IndexLayout icon , 主要用於菜單
  * @author LiQingSong
- * 使用说明：
- *   >>> 在这里可以对以下字体图标进行引入替换，达到 IndexLayout icon 统一效果：
+ * 使用說明：
+ *   >>> 在這裏可以對以下字體圖示進行引入替換，達到 IndexLayout icon 統一效果：
  *     import Icons from '@/components/IconSvg';
  *     import Icons from '@/components/IconFont';
  */

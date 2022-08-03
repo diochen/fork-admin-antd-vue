@@ -22,10 +22,10 @@
                 </span>
                 <template #overlay>
                     <a-menu @click="(e)=>handleCommandMore(e.key)">
-                        <a-menu-item key="closeleft"><icon-svg class="icon-dropdown-menu" type="arrow-left2"  /> 关闭左侧</a-menu-item>
-                        <a-menu-item key="closeright"><icon-svg class="icon-dropdown-menu" type="arrow-right2"  /> 关闭右侧</a-menu-item>
-                        <a-menu-item key="closeother"><icon-svg class="icon-dropdown-menu" type="close"  /> 关闭其他</a-menu-item>
-                        <a-menu-item key="closeall"><icon-svg class="icon-dropdown-menu" type="close2"  /> 关闭所有</a-menu-item>
+                        <a-menu-item key="closeleft"><icon-svg class="icon-dropdown-menu" type="arrow-left2"  /> 關閉左側</a-menu-item>
+                        <a-menu-item key="closeright"><icon-svg class="icon-dropdown-menu" type="arrow-right2"  /> 關閉右側</a-menu-item>
+                        <a-menu-item key="closeother"><icon-svg class="icon-dropdown-menu" type="close"  /> 關閉其他</a-menu-item>
+                        <a-menu-item key="closeall"><icon-svg class="icon-dropdown-menu" type="close2"  /> 關閉所有</a-menu-item>
                     </a-menu>
                 </template>
             </a-dropdown>
@@ -35,10 +35,10 @@
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item command="closeleft"><icon-svg class="icon-dropdown-menu" type="arrow-left2"  /> 关闭左侧</el-dropdown-item>
-                        <el-dropdown-item command="closeright"><icon-svg class="icon-dropdown-menu" type="arrow-right2"  /> 关闭右侧</el-dropdown-item>
-                        <el-dropdown-item command="closeother"><icon-svg class="icon-dropdown-menu" type="close"  /> 关闭其他</el-dropdown-item>
-                        <el-dropdown-item command="closeall"><icon-svg class="icon-dropdown-menu" type="close2"  /> 关闭所有</el-dropdown-item>
+                        <el-dropdown-item command="closeleft"><icon-svg class="icon-dropdown-menu" type="arrow-left2"  /> 關閉左側</el-dropdown-item>
+                        <el-dropdown-item command="closeright"><icon-svg class="icon-dropdown-menu" type="arrow-right2"  /> 關閉右側</el-dropdown-item>
+                        <el-dropdown-item command="closeother"><icon-svg class="icon-dropdown-menu" type="close"  /> 關閉其他</el-dropdown-item>
+                        <el-dropdown-item command="closeall"><icon-svg class="icon-dropdown-menu" type="close2"  /> 關閉所有</el-dropdown-item>
                     
                     </el-dropdown-menu>
                 </template>
@@ -112,7 +112,7 @@ export default defineComponent({
 
         }
 
-        // 鼠标滚动
+        // 滑鼠滾動
         const handleRolling = (e: any) => {
             const type = e.type
             let delta = 0
@@ -123,7 +123,7 @@ export default defineComponent({
         }
 
 
-        // 设置tabItem位置
+        // 設定tabItem位置
         let tabNavSpanRefs: any = [];
         const tabNavSpanRef = (el: any) => {
             tabNavSpanRefs.push(el)
@@ -150,13 +150,13 @@ export default defineComponent({
             if(contentWidth < boxWidth || tabItemElOffsetLeft===0) {
                 translateX.value = 0;
             } else if (tabItemElOffsetLeft < -translateX.value) {
-                // 标签在可视区域左侧
+                // 標簽在可視區域左側
                 translateX.value = -tabItemElOffsetLeft + tabNavPadding;
             }else if (tabItemElOffsetLeft > -translateX.value && tabItemElOffsetLeft + tabItemOffsetWidth < -translateX.value + boxWidth) {
-                // 标签在可视区域
+                // 標簽在可視區域
                 translateX.value = Math.min(0, boxWidth - tabItemOffsetWidth - tabItemElOffsetLeft - tabNavPadding)
             } else {
-                // 标签在可视区域右侧
+                // 標簽在可視區域右側
                 translateX.value = -(tabItemElOffsetLeft - (boxWidth - tabNavPadding - tabItemOffsetWidth))
             }
 
@@ -172,18 +172,18 @@ export default defineComponent({
 
      
 
-        // 设置TabNav 
+        // 設定TabNav 
         const setTabNav = (): void => {
 
             /**
-             * 只有当前路由的path和当前定义路由规则的path一致才会继续执行，
-             * 因为 routeItem 是经过computed获取后传过来的，存在异步情况
+             * 隻有當前路由的path和當前定義路由規則的path一緻才會繼續執行，
+             * 因為 routeItem 是經過computed獲取後傳過來的，存在異步情況
              */
             if(route.path!==routeItem.value.path) {
                 return;
             }
 
-            // 数组里是否已经存在当前route规则
+            // 數組裏是否已經存在當前route規則
             /* 
             const isRoute: boolean = tabNavList.value.some(item =>{
                 if(equalTabNavRoute(item.route, route, routeItem.value.tabNavType)) {
@@ -204,7 +204,7 @@ export default defineComponent({
                 ]);
             }
             */
-            // 数组里是否已经存在当前route规则，不存在下标为-1
+            // 數組裏是否已經存在當前route規則，不存在下標為-1
             let index = tabNavList.value.findIndex(item => equalTabNavRoute(item.route, route, routeItem.value.tabNavType))            
             if(index < 0) {
                 index = tabNavList.value.length;
@@ -227,10 +227,10 @@ export default defineComponent({
             // console.log('route', route, router.currentRoute.value, router.resolve('/home/workplace'), router.currentRoute.value==router.resolve('/home/workplace'))
         }
 
-        // 关闭TabNav
+        // 關閉TabNav
         const closeTabNav = (item: TabNavItem, index: number): void => {
 
-            // 判断关闭的是否是当前打开的tab
+            // 判斷關閉的是否是當前打開的tab
             let isRouterPush: boolean | TabNavItem = false;
             if(equalTabNavRoute(route, item.route, item.menu.tabNavType)) {
                 isRouterPush = tabNavList.value[index-1]
@@ -247,12 +247,12 @@ export default defineComponent({
             
         }
 
-        // 关闭TabNav所有
+        // 關閉TabNav所有
         const closeTabNavAll = (): void => {
-            // 首页
+            // 首頁
             const homeRoute: TabNavItem = tabNavList.value[0];
 
-            // 有关闭回调的无法关闭
+            // 有關閉回調的無法關閉
             let navList: TabNavItem[] = tabNavList.value.filter((item: TabNavItem) => item.menu.tabNavCloseBefore && typeof item.menu.tabNavCloseBefore === 'function')
             store.commit('global/setHeadTabNavList', [
                 {
@@ -264,22 +264,22 @@ export default defineComponent({
             router.push(homeRoute.route)
         }
 
-        // 关闭TabNav其他
+        // 關閉TabNav其他
         const closeTabNavOther = (): void => {
 
-            // 有关闭回调的和当前打开的和首页无法关闭
+            // 有關閉回調的和當前打開的和首頁無法關閉
             let navList: TabNavItem[] = tabNavList.value.filter((item: TabNavItem, i: number) => (item.menu.tabNavCloseBefore && typeof item.menu.tabNavCloseBefore === 'function') || equalTabNavRoute(route, item.route, item.menu.tabNavType) || i===0)
             store.commit('global/setHeadTabNavList', [
                 ...navList
             ]);
         }
 
-        // 关闭TabNav左侧和右侧
+        // 關閉TabNav左側和右側
         const closeTabNavLeftRight = (param: 'left' | 'right'): void => {
-            // 获取当前打开tabNav索引
+            // 獲取當前打開tabNav索引
             const index = tabNavList.value.findIndex(item => equalTabNavRoute(route, item.route, item.menu.tabNavType))
 
-            // 有关闭回调的和当前打开的和首页和左侧或右侧无法关闭
+            // 有關閉回調的和當前打開的和首頁和左側或右側無法關閉
             let navList: TabNavItem[] = tabNavList.value.filter((item: TabNavItem, i: number) => (item.menu.tabNavCloseBefore && typeof item.menu.tabNavCloseBefore === 'function') || ( param === 'left' ? i>=index : i<=index ) || i===0);
 
             store.commit('global/setHeadTabNavList', [
@@ -299,18 +299,18 @@ export default defineComponent({
         })
 
 
-        // 路由链接
+        // 路由鏈接
         const toRoute = (item: TabNavItem, index: number): void => {
             router.push(item.route);
         }
 
-        // 刷新当前tabNav
+        // 刷新當前tabNav
         const refreshCurrentTabNav = (item: TabNavItem): void => {
             // console.log('refreshCurrentTabNav', item)
             router.replace('/refresh')
         }
 
-        // 关闭当前tabNav
+        // 關閉當前tabNav
         const closeCurrentTabNav = (item: TabNavItem, index: number): void => {
             if(item.menu.tabNavCloseBefore && typeof item.menu.tabNavCloseBefore === 'function' ) {
                 item.menu.tabNavCloseBefore(()=> {

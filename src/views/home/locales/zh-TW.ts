@@ -9,7 +9,7 @@ export default {
   'page.home.articlechartcard.card-title': '隨筆',
   'page.home.workschartcard.card-title': '作品',
   'page.home.topicschartcard.card-title': '專題',
-  'page.home.linkschartcard.card-title': '左鄰右舍',
+  'page.home.linkschartcard.card-title': '左鄰右捨',
 
   'page.home.hotsearchcard.card-title': '熱門搜索',
   'page.home.hotsearchcard.card.table-column-number': '序號',

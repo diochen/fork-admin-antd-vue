@@ -1,5 +1,5 @@
 /**
- * 设置 html Title  composables
+ * 設定 html Title  composables
  * @author LiQingSong
  */
 import { ComputedRef, onMounted, Ref, watch } from 'vue';

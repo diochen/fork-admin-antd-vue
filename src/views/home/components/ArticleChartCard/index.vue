@@ -52,7 +52,7 @@ export default defineComponent({
     setup(): ArticleChartCardSetupData {
         const { t } = useI18n();
 
-        // 数据
+        // 數據
         const visitData = reactive<ArticleChartDataType>({
           total: 0,
           num: 0,
@@ -60,7 +60,7 @@ export default defineComponent({
           day: 0
         });
       
-        // 读取数据 func
+        // 讀取數據 func
         const loading = ref<boolean>(true);
         const getData = async () => {
             loading.value = true;           

@@ -10,7 +10,7 @@
                 <span v-else>{{text}}</span>
             </template>
             <template #workid="{ text, record }">
-                <a-input v-if="record.edit" :value="text" @change="e => handleChange(e.target.value, record.key, 'workId')" placeholder="工号" />
+                <a-input v-if="record.edit" :value="text" @change="e => handleChange(e.target.value, record.key, 'workId')" placeholder="工號" />
                 <span v-else>{{text}}</span>
             </template>
             <template #action="{ record }">
@@ -18,8 +18,8 @@
                     <span v-if="record.isNew">
                         <a @click="saveRow(record)">添加</a>
                         <a-divider type="vertical" />
-                        <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-                            <a>删除</a>
+                        <a-popconfirm title="是否要刪除此行？" @confirm="remove(record.key)">
+                            <a>刪除</a>
                         </a-popconfirm>
                     </span>
                     <span v-else>
@@ -29,10 +29,10 @@
                     </span>
                 </template>
                 <span v-else>
-                    <a  @click="toggle(record.key)">编辑</a>
+                    <a  @click="toggle(record.key)">編輯</a>
                     <a-divider type="vertical" />
-                    <a-popconfirm title="是否要删除此行？" @confirm="remove(record.key)">
-                        <a>删除</a>
+                    <a-popconfirm title="是否要刪除此行？" @confirm="remove(record.key)">
+                        <a>刪除</a>
                     </a-popconfirm>
                 </span>
             </template>
@@ -43,7 +43,7 @@
             @click="newTableData"
         >
             <PlusOutlined />
-            新增内容
+            新增內容
       </a-button>
 </template>
 <script lang="ts">
@@ -88,7 +88,7 @@ export default defineComponent({
                 slots: { customRender: 'name' },
             },
             {
-                title: '工号',
+                title: '工號',
                 dataIndex: 'workId',
                 key: 'workId',
                 width: '35%',
@@ -103,7 +103,7 @@ export default defineComponent({
         const TableData = ref<TableFormDataType[]>(props.value);
         const TableLoading = ref<boolean>(false);
 
-        // 新增内容
+        // 新增內容
         const newIndex = ref<number>(0);
         const newTableData = () => {
 
@@ -127,7 +127,7 @@ export default defineComponent({
             const { key, name, workId } = record
             if (!name || !workId) {
                 TableLoading.value = false;
-                message.error('请填写完整成员信息。')
+                message.error('請填寫完整成員信息。')
                 return
             }
 
@@ -144,14 +144,14 @@ export default defineComponent({
             emit('update:value', newData);
         }
 
-        // 删除
+        // 刪除
         const remove = (key: string) => {
             const newData = TableData.value.filter(item => item.key !== key);
             TableData.value = newData;
             emit('update:value', newData);
         }
 
-        // 取消编辑
+        // 取消編輯
         const cancel = (key: string) => {
             const target: any = TableData.value.find(item => item.key === key);
             if(target) {
@@ -160,14 +160,14 @@ export default defineComponent({
             }
         }
 
-        // 编辑显示
+        // 編輯顯示
         const toggle = (key: string) => {
             const target: any = TableData.value.find(item => item.key === key);
             target._originalData = { ...target };
             target.edit = !target.edit;
         }
 
-        // 输入框修改内容
+        // 輸入框修改內容
         const handleChange = (value: string, key: string, column: 'name' | 'workId') => {
             const newData = [...TableData.value];
             const target = newData.find(item => key === item.key)

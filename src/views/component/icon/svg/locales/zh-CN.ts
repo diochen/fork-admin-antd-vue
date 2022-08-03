@@ -1,3 +1,3 @@
 export default {
-  'page.icon.svg.remark.title': '说明：',
+  'page.icon.svg.remark.title': '說明：',
 };

@@ -53,14 +53,14 @@ const worksChartOption: EChartsOption = {
           colorStops: [
             {
               offset: 0,
-              color: '#A9F387', // 0% 处的颜色
+              color: '#A9F387', // 0% 處的顔色
             },
             {
               offset: 1,
-              color: '#48D8BF', // 100% 处的颜色
+              color: '#48D8BF', // 100% 處的顔色
             },
           ],
-          globalCoord: false, // 缺省为 false
+          globalCoord: false, // 缺省為 false
         } as any,
       },
       lineStyle: {
@@ -87,7 +87,7 @@ export default defineComponent({
     setup(): WorksChartCardSetupData {
         const { t } = useI18n();
 
-        // 数据
+        // 數據
         const visitData = reactive<WorksChartDataType>({
           total: 0,
           num: 0,
@@ -97,13 +97,13 @@ export default defineComponent({
           }
         });
 
-        // 总数
+        // 總數
         const total = computed<number>(() => visitData.total);
         // num
         const num = computed<number>(() => visitData.num);
       
         const loading = ref<boolean>(true);
-        // echarts 图表
+        // echarts 圖錶
         const worksChartRef = ref<HTMLDivElement>();
         useEcharts(worksChartRef, worksChartOption, async (chart)=> {
             loading.value = true;

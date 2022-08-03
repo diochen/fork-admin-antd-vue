@@ -36,25 +36,25 @@ import LayoutRoutes from './routes'
 const store = useStore<{global: GlobalStateType;}>()
 const route = useRoute()
 
-// 模板主题
+// 模闆主題
 const theme = computed(()=> store.state.global.theme)
 
-// 导航模式
+// 導航模式
 const navMode = computed(()=> store.state.global.navMode)
 
-// 框架所有菜单路由
+// 框架所有菜單路由
 const menuData: RoutesDataItem[] = vueRoutes(LayoutRoutes)
 
-// 框架所有的路由转成json并统一添加了parentPath
+// 框架所有的路由轉成json並統一添加了parentPath
 const jsonPathRoutes: PathJsonRoutesDataItem = jsonPathVueRoutes(menuData)
 
-// 当前路由 item
+// 當前路由 item
 const routeItem = computed<RoutesDataItem>(()=> getJsonRouteItem(route.path, jsonPathRoutes))
 
-// 面包屑导航
+// 麵包屑導航
 const breadCrumbs = computed<BreadcrumbType[]>(() => getBreadcrumbRoutes(route.path, jsonPathRoutes))
 
-// 设置title
+// 設定title
 useTitle(routeItem);
 
 </script>

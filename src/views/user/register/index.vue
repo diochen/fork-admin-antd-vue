@@ -59,13 +59,13 @@ export default defineComponent({
         const store = useStore<{userregister: RegisterStateType}>();
         const { t } = useI18n();
 
-        // 表单值
+        // 錶單值
         const modelRef = reactive<RegisterParamsType>({
             username: '',
             password: '',
             confirm: ''
         });
-        // 表单验证
+        // 錶單驗證
         const rulesRef = reactive({
             username: [
                 {
@@ -93,11 +93,11 @@ export default defineComponent({
                 }
             ],          
         });
-        // 获取表单内容
+        // 獲取錶單內容
         const { validate, validateInfos } = useForm(modelRef, rulesRef);
-        // 注册loading
+        // 註冊loading
         const submitLoading = ref<boolean>(false);
-        // 注册
+        // 註冊
         const handleSubmit = async (e: MouseEvent) => {
             e.preventDefault();
             submitLoading.value = true;
@@ -118,7 +118,7 @@ export default defineComponent({
         // 重置 validateInfos
         const validateInfosNew = useI18nAntdFormVaildateInfos(validateInfos);
 
-         // 注册状态
+         // 註冊狀態
         const errorMsg = computed<string | undefined>(()=> store.state.userregister.errorMsg);
 
 

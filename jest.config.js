@@ -5,19 +5,19 @@ module.exports = {
   clearMocks: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  // 告诉Jest需要匹配的文件后缀
+  // 告訴Jest需要匹配的文件字尾
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
-  // 别名设置
+  // 別名設定
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  // 匹配哪些文件进行测试
+  // 匹配哪些文件進行測試
   testMatch: ['**/tests/unit/**/*.spec.ts?(x)'],
-  // 不进行匹配的目录
+  // 不進行匹配的目錄
   transformIgnorePatterns: ["<rootDir>/node_modules/"],
-  // 匹配到 .vue 文件的时候用 vue-jest处理， 匹配到.js文件的时候用 babel-jest 处理
+  // 匹配到 .vue 文件的時候用 vue-jest處理， 匹配到.js文件的時候用 babel-jest 處理
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '^.+\\js$': 'babel-jest',

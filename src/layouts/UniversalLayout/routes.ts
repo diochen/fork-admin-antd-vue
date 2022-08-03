@@ -39,7 +39,7 @@ const IndexLayoutRoutes: Array<RoutesDataItem> = [
           },
         ],
         tabNavCloseBefore: (close: () => void): void=> {
-          if(window.confirm('确认关闭吗')) {
+          if(window.confirm('確認關閉嗎')) {
             close();
           }
         }

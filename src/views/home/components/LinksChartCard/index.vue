@@ -67,7 +67,7 @@ export default defineComponent({
     setup(): LinksChartCardSetupData {
         const { t } = useI18n();
 
-        // 数据
+        // 數據
         const visitData = reactive<LinksChartDataType>({
           total: 0,
           num: 0,
@@ -77,13 +77,13 @@ export default defineComponent({
           }
         });
 
-        // 总数
+        // 總數
         const total = computed<number>(() => visitData.total);
         // num
         const num = computed<number>(() => visitData.num);
 
         const loading = ref<boolean>(false);
-        // ec 图表
+        // ec 圖錶
         const linksChartRef = ref<HTMLDivElement>();
         useEcharts(linksChartRef, linksChartOption, async (chart)=> {
 

@@ -3,37 +3,37 @@
         <a-spin :spinning="loading" size="large">
             <a-card :bordered="false">
 
-                <a-descriptions title="退款申请">
-                    <a-descriptions-item label="取货单号">
+                <a-descriptions title="退款申請">
+                    <a-descriptions-item label="取貨單號">
                     {{refundApplication.ladingNo}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="状态">
+                    <a-descriptions-item label="狀態">
                     {{refundApplication.state}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="销售单号">
+                    <a-descriptions-item label="銷售單號">
                     {{refundApplication.saleNo}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="子订单">
+                    <a-descriptions-item label="子訂單">
                     {{refundApplication.childOrders}}
                     </a-descriptions-item>
                 </a-descriptions>
 
                 <a-divider />
 
-                <a-descriptions title="用户信息">
-                    <a-descriptions-item label="用户姓名">
+                <a-descriptions title="用戶信息">
+                    <a-descriptions-item label="用戶姓名">
                     {{userInfo.name}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="联系电话">
+                    <a-descriptions-item label="聯係電話">
                     {{userInfo.tel}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="常用快递">
+                    <a-descriptions-item label="常用快遞">
                     {{userInfo.courier}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="取货地址">
+                    <a-descriptions-item label="取貨地址">
                     {{userInfo.address}}
                     </a-descriptions-item>
-                    <a-descriptions-item label="备注">
+                    <a-descriptions-item label="備註">
                     {{userInfo.remark}}
                     </a-descriptions-item>
                 </a-descriptions>
@@ -43,7 +43,7 @@
 
                 <div class="ant-descriptions">
                     <div class="ant-descriptions-header">
-                    <div class="ant-descriptions-title">退货商品</div>
+                    <div class="ant-descriptions-title">退貨商品</div>
                     </div>
                     <div class="ant-descriptions-view">
                         <a-table
@@ -59,7 +59,7 @@
 
                 <div class="ant-descriptions">
                     <div class="ant-descriptions-header">
-                    <div class="ant-descriptions-title">退货进度</div>
+                    <div class="ant-descriptions-title">退貨進度</div>
                     </div>
                     <div class="ant-descriptions-view">
                         <a-table
@@ -69,7 +69,7 @@
                         >
                             <template #status="{ text }">
                                 <a-badge v-if="text === 'success'" status="success" text="成功" />
-                                <a-badge v-else status="processing" text="进行中" />;
+                                <a-badge v-else status="processing" text="進行中" />;
                             </template>
                         </a-table>
                     </div>
@@ -104,13 +104,13 @@ export default defineComponent({
     setup(): DetailBasicPageSetupData {
         const store = useStore<{ DetailBasic: DetailStateType}>();
 
-        // 退款申请 信息
+        // 退款申請 信息
         const refundApplication = computed<RefundApplicationDataType>(() => store.state.DetailBasic.detail.refundApplication);
 
-        // 用户信息
+        // 用戶信息
         const userInfo = computed<UserInfoDataType>(() => store.state.DetailBasic.detail.userInfo);
 
-        // 退货商品
+        // 退貨商品
         const returnGoods = computed<ReturnGoodsDataType[]>(() => store.state.DetailBasic.detail.returnGoods);
         const goodsData = computed<ReturnGoodsDataType[]>(() => {
             let goodsData: typeof returnGoods.value = [];
@@ -122,7 +122,7 @@ export default defineComponent({
                     amount += Number(item.amount);
                 });
                 goodsData = returnGoods.value.concat({
-                    id: '总计',
+                    id: '總計',
                     num,
                     amount,
                 });
@@ -144,7 +144,7 @@ export default defineComponent({
         };
         const goodsColumns = [
             {
-                title: '商品编号',
+                title: '商品編號',
                 dataIndex: 'id',
                 customRender: ({text, index}: { text: any; index: number}) => {
                     if (index < returnGoods.value.length) {
@@ -153,7 +153,7 @@ export default defineComponent({
                         }, text);
                     }
                     return {
-                        children: h('span',{style:"font-weight: 600"},'总计'),
+                        children: h('span',{style:"font-weight: 600"},'總計'),
                         props: {
                             colSpan: 4,
                         },
@@ -161,26 +161,26 @@ export default defineComponent({
                 },
             },
             {
-                title: '商品名称',
+                title: '商品名稱',
                 dataIndex: 'name',
                 key: 'name',
                 customRender: renderContent,
             },
             {
-                title: '商品条码',
+                title: '商品條碼',
                 dataIndex: 'barcode',
                 key: 'barcode',
                 customRender: renderContent,
             },
             {
-                title: '单价',
+                title: '單價',
                 dataIndex: 'price',
                 key: 'price',
                 align: 'right' as 'left' | 'right' | 'center',
                 customRender: renderContent,
             },
             {
-                title: '数量（件）',
+                title: '數量（件）',
                 dataIndex: 'num',
                 key: 'num',
                 align: 'right' as 'left' | 'right' | 'center',
@@ -192,7 +192,7 @@ export default defineComponent({
                 },
             },
             {
-                title: '金额',
+                title: '金額',
                 dataIndex: 'amount',
                 key: 'amount',
                 align: 'right' as 'left' | 'right' | 'center',
@@ -205,35 +205,35 @@ export default defineComponent({
             },
         ];
 
-        // 退货进度
+        // 退貨進度
         const returnProgress = computed<ReturnProgressDataType[]>(() => store.state.DetailBasic.detail.returnProgress);
         const progressColumns = [
             {
-                title: '时间',
+                title: '時間',
                 dataIndex: 'time',
             },
             {
-                title: '当前进度',
+                title: '當前進度',
                 dataIndex: 'rate',
             },
             {
-                title: '状态',
+                title: '狀態',
                 dataIndex: 'status',
                 slots: { customRender: 'status' },
             },
 
             {
-                title: '操作员ID',
+                title: '操作員ID',
                 dataIndex: 'operator',
             },
             {
-                title: '耗时',
+                title: '耗時',
                 dataIndex: 'cost',
             },
         ];
 
 
-        // 读取数据 func
+        // 讀取數據 func
         const loading = ref<boolean>(true);
         const getData = async () => {
             loading.value = true;

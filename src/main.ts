@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 
-// 全局样式
+// 全局樣式
 import '@/assets/css/global.less';
 import '@/assets/css/main.css'
 

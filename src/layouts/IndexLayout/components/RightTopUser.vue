@@ -38,10 +38,10 @@ export default defineComponent({
         const { t } = useI18n();
 
 
-        // 获取当前登录用户信息
+        // 獲取當前登入用戶信息
         const currentUser = computed<CurrentUser>(()=> store.state.user.currentUser);
 
-        // 点击菜单
+        // 點選菜單
         const onMenuClick = async (event: any) => {
             const { key } = event;
 

@@ -8,8 +8,8 @@ import { ViteDevServer, Plugin, Connect } from 'vite';
 const mockDir = path.resolve(__dirname, '../../mock');
 
 /**
- * 解析post请求参数
- * @param req - 请求对象
+ * 解析post請求參數
+ * @param req - 請求對象
  */
 export function bodyParse(req: Connect.IncomingMessage) {
     return new Promise(resolve => {
@@ -30,7 +30,7 @@ export function bodyParse(req: Connect.IncomingMessage) {
 }
 
 /**
- * 删除 mock 文件缓存
+ * 刪除 mock 文件緩存
  * @author LiQingSong
  */
 export function unRegisterMock(mockDirPath: string = mockDir) {
@@ -42,7 +42,7 @@ export function unRegisterMock(mockDirPath: string = mockDir) {
 }
 
 /**
- * 加载所有mock文件内容
+ * 加載所有mock文件內容
  * @author LiQingSong
  */
 export function loadAllMock(mockDirPath: string = mockDir) {

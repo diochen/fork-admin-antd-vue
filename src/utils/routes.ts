@@ -4,67 +4,67 @@
  */
 
 /**
- * 面包屑类型
+ * 麵包屑類型
  */
  export interface BreadcrumbType {
-  // 标题，路由在菜单、浏览器title 或 面包屑中展示的文字，目前可以使用locales
+  // 標題，路由在菜單、瀏覽器title 或 麵包屑中展示的文字，目前可以使用locales
   title: string;
-  // 路由地址或外链
+  // 路由地址或外鏈
   path: string;
 }
 
 /**
- * tab导航存储规则类型
+ * tab導航存儲規則類型
  */
 export type TabNavType = 'path' | 'querypath';
 
 import 'vue-router'
 declare module 'vue-router' {
   /**
-   * 自定义补充扩展 - 路由 - 类型字段
+   * 自定義補充擴展 - 路由 - 類型字段
    */
   interface _RouteRecordBase {
-      // 菜单中是否隐藏
+      // 菜單中是否隱藏
       hidden?: boolean;
-      // 图标的名称，显示在菜单标题前
+      // 圖示的名稱，顯示在菜單標題前
       icon?: string;
-      // 权限控制，页面角色(您可以设置多个角色)
+      // 權限控製，頁麵角色(您可以設定多個角色)
       roles?: string[];
-      // 标题，路由在菜单、浏览器title 或 面包屑中展示的文字，目前可以使用locales
+      // 標題，路由在菜單、瀏覽器title 或 麵包屑中展示的文字，目前可以使用locales
       title: string;
       /**
-       * 面包屑自定义内容：
-       *     1、默认不配置按照路由自动读取；
-       *     2、设置为 false , 按照路由自动读取并不读当前自己；
-       *     3、配置对应的面包屑格式如下：
+       * 麵包屑自定義內容：
+       *     1、預設不配置按照路由自動讀取；
+       *     2、設定為 false , 按照路由自動讀取並不讀當前自己；
+       *     3、配置對應的麵包屑格式如下：
        */
       breadcrumb?: BreadcrumbType[] | false;
       /**
-       * 设置tab导航存储规则类型
-       *    1、默认不配置按照path(route.path)规则
-       *    2、querypath：path + query (route.path+route.query) 规则
+       * 設定tab導航存儲規則類型
+       *    1、預設不配置按照path(route.path)規則
+       *    2、querypath：path + query (route.path+route.query) 規則
        */
       tabNavType?: TabNavType ;
       /**
-       * 设置该字段，则在关闭当前tab页时，作为关闭前的钩子函数
-       * @param close 关闭回调函数
+       * 設定該字段，則在關閉當前tab頁時，作為關閉前的鈎子函數
+       * @param close 關閉回調函數
        */
       tabNavCloseBefore?: (close: ()=>void)=> void;
       /**
-        * 左侧菜单选中，如果设置路径，侧栏将突出显示你设置的路径对应的侧栏导航
-        *   1、（默认 route.path），此参数是为了满足特殊页面特殊需求，
-        *   2、如：详情页等选中侧栏导航或在模块A下面的页面，想选模块B为导航选中状态
+        * 左側菜單選中，如果設定路徑，側欄將突出顯示你設定的路徑對應的側欄導航
+        *   1、（預設 route.path），此參數是為了滿足特殊頁麵特殊需求，
+        *   2、如：詳情頁等選中側欄導航或在模塊A下麵的頁麵，想選模塊B為導航選中狀態
         */
       selectLeftMenu?: string;
       /**
-        * 所属顶级菜单,当顶级菜单存在时，用于选中顶部菜单，与侧栏菜单切换
-        *   1、三级路由此参数的作用是选中顶级菜单
-        *   2、二级路由此参数的作用是所属某个顶级菜单的下面，两个层级的必须同时填写一致，如果path设置的是外链，此参数必填
-        *   3、(默认不设置 path.split('/')[0])，此参数是为了满足特殊页面特殊需求
+        * 所屬頂級菜單,當頂級菜單存在時，用於選中頂部菜單，與側欄菜單切換
+        *   1、三級路由此參數的作用是選中頂級菜單
+        *   2、二級路由此參數的作用是所屬某個頂級菜單的下麵，兩個層級的必須同時填寫一緻，如果path設定的是外鏈，此參數必填
+        *   3、(預設不設定 path.split('/')[0])，此參數是為了滿足特殊頁麵特殊需求
         */
       belongTopMenu?: string;
 
-      // 所有父元素的path,下标key按照父元素的顺序
+      // 所有父元素的path,下標key按照父元素的順序
       parentPath?: string[];
   }
 }
@@ -72,12 +72,12 @@ import { RouteRecordRaw,  RouteLocationNormalizedLoaded } from 'vue-router';
 
 
 /**
- * 自定义重命名 - 路由类型
+ * 自定義重命名 - 路由類型
  */
 export type RoutesDataItem = RouteRecordRaw;
 
 /**
- * 头部tab导航类型
+ * 頭部tab導航類型
  */
 export interface TabNavItem {
   route: RouteLocationNormalizedLoaded,
@@ -85,7 +85,7 @@ export interface TabNavItem {
 }
 
 /**
- * 用Routes的path作为key的JsonRoutes
+ * 用Routes的path作為key的JsonRoutes
  */
  export interface PathJsonRoutesDataItem {
   [path: string]: RoutesDataItem
@@ -95,7 +95,7 @@ import { isExternal } from './validate';
 import { equalObject } from "./object";
 
 /**
- * 获取 route
+ * 獲取 route
  * @param pathname path
  * @param routesData routes
  */
@@ -121,9 +121,9 @@ export const getRouteItem = (pathname: string, routesData: RoutesDataItem[]): Ro
 
 
 /**
- * 获取 route
- * @param pathname 当前路由path
- * @param jsonRoutesData 经过jsonPathVueRoutes处理，框架的所有路由
+ * 獲取 route
+ * @param pathname 當前路由path
+ * @param jsonRoutesData 經過jsonPathVueRoutes處理，框架的所有路由
  * @returns
  */
  export const getJsonRouteItem = (pathname: string, jsonRoutesData: PathJsonRoutesDataItem): RoutesDataItem => {
@@ -131,7 +131,7 @@ export const getRouteItem = (pathname: string, routesData: RoutesDataItem[]): Ro
 }
 
 /**
- * 根据 hidden 判断是否有数据子集
+ * 根據 hidden 判斷是否有數據子集
  * @param children RoutesDataItem[]
  */
 export const hasChildRoute = (children: RoutesDataItem[]): boolean => {
@@ -148,9 +148,9 @@ export const hasChildRoute = (children: RoutesDataItem[]): boolean => {
 };
 
 /**
- * 根据路由 path 格式化 - 获取 父path
+ * 根據路由 path 格式化 - 獲取 父path
  * @param pathname path
- * @param separator 路由分割符- 默认 /
+ * @param separator 路由分割符- 預設 /
  */
 export const formatRoutePathTheParents = (pathname: string, separator = '/'): string[] => {
   const arr: string[] = [];
@@ -167,10 +167,10 @@ export const formatRoutePathTheParents = (pathname: string, separator = '/'): st
 };
 
 /**
- * 根据父path 设置当前项 path
+ * 根據父path 設定當前項 path
  * @param pathname path
- * @param parentPath 父path - 默认 /
- * @param headStart 路由起始头 - 默认 /
+ * @param parentPath 父path - 預設 /
+ * @param headStart 路由起始頭 - 預設 /
  */
 export const setRoutePathForParent = (pathname: string, parentPath = '/', headStart = '/'): string => {
   if (isExternal(pathname)) {
@@ -183,9 +183,9 @@ export const setRoutePathForParent = (pathname: string, parentPath = '/', headSt
 };
 
 /**
- * 根据路由 pathname 数组 - 返回对应的 route 数组
- * @param pathname 路由path数组
- * @param jsonRoutesData 经过jsonPathVueRoutes处理，框架的所有路由
+ * 根據路由 pathname 數組 - 返回對應的 route 數組
+ * @param pathname 路由path數組
+ * @param jsonRoutesData 經過jsonPathVueRoutes處理，框架的所有路由
  * @returns
  */
  export const getPathsTheRoutes = ( pathname: string[], jsonRoutesData: PathJsonRoutesDataItem): RoutesDataItem[] => {
@@ -204,9 +204,9 @@ export const setRoutePathForParent = (pathname: string, parentPath = '/', headSt
 
 
 /**
- * 获取面包屑对应的 route 数组
- * @param pathname 当前路由path
- * @param jsonRoutesData 经过jsonPathVueRoutes处理，框架的所有路由
+ * 獲取麵包屑對應的 route 數組
+ * @param pathname 當前路由path
+ * @param jsonRoutesData 經過jsonPathVueRoutes處理，框架的所有路由
  * @returns
  */
  export const getBreadcrumbRoutes = (pathname: string, jsonRoutesData: PathJsonRoutesDataItem): BreadcrumbType[] => {
@@ -227,7 +227,7 @@ export const setRoutePathForParent = (pathname: string, parentPath = '/', headSt
 
 
 /**
- * 获取当前路由选中的侧边栏菜单path
+ * 獲取當前路由選中的側邊欄菜單path
  * @param route route
  */
 export const getSelectLeftMenuPath = (route: RoutesDataItem): string => {
@@ -235,7 +235,7 @@ export const getSelectLeftMenuPath = (route: RoutesDataItem): string => {
 };
 
 /**
- * 获取当前路由对应的顶部菜单path
+ * 獲取當前路由對應的頂部菜單path
  * @param route route
  */
 export const getRouteBelongTopMenu = (route: RoutesDataItem): string => {
@@ -247,10 +247,10 @@ export const getRouteBelongTopMenu = (route: RoutesDataItem): string => {
 
 
 /**
- * 格式化返回 vue 路由, 主要处理特殊情况
+ * 格式化返回 vue 路由, 主要處理特殊情況
  * @param routesData routes
- * @param parentPath 父path - 默认 /
- * @param headStart 路由起始头 - 默认 /
+ * @param parentPath 父path - 預設 /
+ * @param headStart 路由起始頭 - 預設 /
  */
 export const vueRoutes = (routesData: RoutesDataItem[], parentPath = '/', headStart = '/'): RoutesDataItem[] => {
   return routesData.map(item => {
@@ -271,8 +271,8 @@ export const vueRoutes = (routesData: RoutesDataItem[], parentPath = '/', headSt
 
 
 /**
- * 把经过 vueRoutes 处理过的 routes 转换成用path作为key的json，并统一增加了parentPath
- * @param vueRoutesData 经过 vueRoutes 处理过的 routes
+ * 把經過 vueRoutes 處理過的 routes 轉換成用path作為key的json，並統一增加了parentPath
+ * @param vueRoutesData 經過 vueRoutes 處理過的 routes
  * @returns PathJsonRoutesDataItem
  */
  export const jsonPathVueRoutes = (vueRoutesData: RoutesDataItem[]): PathJsonRoutesDataItem=> {
@@ -307,7 +307,7 @@ export const vueRoutes = (routesData: RoutesDataItem[], parentPath = '/', headSt
 
 
 /**
- * 批量设置route.meta值
+ * 批量設定route.meta值
  * @param routesData routes
  */
  export const routesSetMeta = (routesData: RoutesDataItem[]): RoutesDataItem[] => {
@@ -317,11 +317,11 @@ export const vueRoutes = (routesData: RoutesDataItem[], parentPath = '/', headSt
       meta: {
         ...meta,
 
-        // 自定义设置的 meta 值 S
+        // 自定義設定的 meta 值 S
 
         tabNavType: tabNavType || 'path',  
 
-        // 自定义设置的 meta 值 E
+        // 自定義設定的 meta 值 E
       },
       ...other
      };
@@ -340,9 +340,9 @@ export const vueRoutes = (routesData: RoutesDataItem[], parentPath = '/', headSt
 
 
 /**
- * 根据 自定义传入权限名 判断当前用户是否有权限
- * @param userRoles 用户的权限
- * @param roles 自定义权限名
+ * 根據 自定義傳入權限名 判斷當前用戶是否有權限
+ * @param userRoles 用戶的權限
+ * @param roles 自定義權限名
  */
 export const hasPermissionRouteRoles = (userRoles: string[], roles?: string | string[]): boolean => {
   if (userRoles.includes('admin')) {
@@ -365,9 +365,9 @@ export const hasPermissionRouteRoles = (userRoles: string[], roles?: string | st
 };
 
 /**
- * 根据 route.roles 判断当前用户是否有权限
- * @param roles 用户的权限
- * @param route 当前路由
+ * 根據 route.roles 判斷當前用戶是否有權限
+ * @param roles 用戶的權限
+ * @param route 當前路由
  */
 export const hasPermission = (roles: string[], route: RoutesDataItem): boolean => {
   if (roles.includes('admin')) {
@@ -383,9 +383,9 @@ export const hasPermission = (roles: string[], route: RoutesDataItem): boolean =
 };
 
 /**
- * 根据用户权限 获取 对应权限菜单
- * @param roles 用户的权限
- * @param routes 框架对应路由
+ * 根據用戶權限 獲取 對應權限菜單
+ * @param roles 用戶的權限
+ * @param routes 框架對應路由
  */
 export const getPermissionMenuData = ( roles: string[], routes: RoutesDataItem[]): RoutesDataItem[] => {
   const menu: RoutesDataItem[] = [];
@@ -405,10 +405,10 @@ export const getPermissionMenuData = ( roles: string[], routes: RoutesDataItem[]
 
 
 /**
- * 判断tabNav，对应的route是否相等
+ * 判斷tabNav，對應的route是否相等
  * @param route1 vue-route
  * @param route2 vue-route
- * @param type 判断规则
+ * @param type 判斷規則
  * @returns 
  */
  export const equalTabNavRoute = (route1: RouteLocationNormalizedLoaded, route2: RouteLocationNormalizedLoaded, type: TabNavType = 'path'): boolean=> {

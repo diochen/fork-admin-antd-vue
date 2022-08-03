@@ -67,12 +67,12 @@ export default defineComponent({
         const store = useStore<{userlogin: UserLoginStateType}>();
         const { t } = useI18n();
 
-        // 表单值
+        // 錶單值
         const modelRef = reactive<LoginParamsType>({
             username: '',
             password: ''
         });
-        // 表单验证
+        // 錶單驗證
         const rulesRef = reactive({
             username: [
                 {
@@ -87,11 +87,11 @@ export default defineComponent({
                 },
             ],            
         });
-        // 获取表单内容
+        // 獲取錶單內容
         const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef);
-        // 登录loading
+        // 登入loading
         const submitLoading = ref<boolean>(false);
-        // 登录
+        // 登入
         const handleSubmit = async (e: MouseEvent) => {
             e.preventDefault();
             submitLoading.value = true;
@@ -115,7 +115,7 @@ export default defineComponent({
             submitLoading.value = false;
         };
 
-        // 登录状态
+        // 登入狀態
         const loginStatus = computed<"ok" | "error" | undefined>(()=> store.state.userlogin.loginStatus);
 
         // 重置 validateInfos

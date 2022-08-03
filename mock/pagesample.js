@@ -10,14 +10,14 @@ mock[`GET ${VITE_APP_APIHOST || ''}/pages/detail`] = (req, res) => {
       userInfo: {
         name: '小李',
         tel: '13770779817',
-        courier: '宇宙快递',
+        courier: '宇宙快遞',
         address: '宇宙地球',
-        remark: '无',
+        remark: '無',
       },
       refundApplication: {
         ladingNo: '1000000000',
         saleNo: '1234123421',
-        state: '已取货',
+        state: '已取貨',
         childOrders: '3214321432',
       },
       'returnGoods|5': [
@@ -41,7 +41,7 @@ mock[`GET ${VITE_APP_APIHOST || ''}/pages/detail`] = (req, res) => {
           status: function() {
             return this.statuskey ? 'success' : 'processing';
           },
-          operator: '取货员 ID @integer(1000,9999)',
+          operator: '取貨員 ID @integer(1000,9999)',
           cost: '@integer(1,5) h',
         },
       ],
@@ -66,8 +66,8 @@ mock[`GET ${VITE_APP_APIHOST || ''}/pages/list`] = (req, res) => {
       'list|10': [
         {
           id: '@integer(1)',
-          'name|1': ['个人博客', '网页小功能'],
-          'desc|1': ['李庆松的个人博客', '原创定制最好的网页插件小功能'],
+          'name|1': ['個人部落格', '網頁小功能'],
+          'desc|1': ['李慶鬆的個人部落格', '原創定製最好的網頁插件小功能'],
           'href|1': ['http://liqingsong.cc', 'http://wyxgn.com'],
           'type|1': ['header', 'footer'],
         },
@@ -102,8 +102,8 @@ mock[`GET ${VITE_APP_APIHOST || ''}/pages/list/*`] = (req, res) => {
     code: 0,
     data: mockjs.mock({
       id: '@integer(1)',
-      'name|1': ['个人博客', '网页小功能'],
-      'desc|1': ['李庆松的个人博客', '原创定制最好的网页插件小功能'],
+      'name|1': ['個人部落格', '網頁小功能'],
+      'desc|1': ['李慶鬆的個人部落格', '原創定製最好的網頁插件小功能'],
       'href|1': ['http://liqingsong.cc', 'http://wyxgn.com'],
       'type|1': ['header', 'footer'],
     }),

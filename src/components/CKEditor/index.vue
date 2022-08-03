@@ -76,7 +76,7 @@ export default defineComponent({
     },
     setup(props, { emit }): CKEditorSetupData {
 
-        // 数据值
+        // 數據值
         const editorData = computed({
             get: () => props.modelValue,
             set: val => {
@@ -84,7 +84,7 @@ export default defineComponent({
             }
         });
 
-        // 加载完成
+        // 加載完成
         const onReady = (editor: any) => {
                 // console.log( 'Editor is ready to use!', editor );
                 editor.ui
@@ -136,9 +136,9 @@ export default defineComponent({
                                                     };
                                                 });
                                             }).then((v: any) => {
-                                                // 执行上传 Ajax
-                                                console.log("执行上传 ajax", v);
-                                                //返回标准格式
+                                                // 執行上載 Ajax
+                                                console.log("執行上載 ajax", v);
+                                                //返回標準格式
                                                 return {
                                                     default: 'http://img/BG.png'
                                                 }

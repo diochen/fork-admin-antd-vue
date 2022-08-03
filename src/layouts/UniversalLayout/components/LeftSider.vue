@@ -35,13 +35,13 @@ const { menuData, routeItem } = toRefs(props)
 
 const store = useStore<{global: GlobalStateType;}>()
 
-// 模板主题
+// 模闆主題
 const theme = computed<any>(()=> store.state.global.theme)
 
-// 左侧展开收起
+// 左側展開收起
 const collapsed = computed(()=> store.state.global.collapsed)
 
-// 左侧侧边固定开启
+// 左側側邊固定開啓
 const leftSiderFixed = computed(()=> store.state.global.leftSiderFixed)
 
 </script>

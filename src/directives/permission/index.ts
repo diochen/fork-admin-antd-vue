@@ -1,5 +1,5 @@
 /**
- * 自定义指令 权限验证
+ * 自定義指令 權限驗證
  * @author LiQingSong
  * 使用Demo：
  *      import permission from '@/directives/permission';
@@ -9,8 +9,8 @@
  *              permission
  *          }
  *      })
- *      <a href="#" v-permission="'test'">删除</a>
- *      <a href="#" v-permission="['admin','test']">删除</a>
+ *      <a href="#" v-permission="'test'">刪除</a>
+ *      <a href="#" v-permission="['admin','test']">刪除</a>
  */
 import { Directive } from "vue";
 import UserModel from "@/store/user";

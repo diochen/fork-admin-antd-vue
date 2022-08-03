@@ -1,5 +1,5 @@
 /**
- * 判断是否是外链
+ * 判斷是否是外鏈
  * @param {string} path
  * @returns {Boolean}
  * @author LiQingSong

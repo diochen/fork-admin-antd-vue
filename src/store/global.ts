@@ -7,26 +7,26 @@ import router from '@/config/routes';
 import { RouteLocationRaw } from 'vue-router';
 
 export interface StateType {
-  /* 以下是针对所有 Layout 扩展字段 */
-  // 左侧展开收起
+  /* 以下是針對所有 Layout 擴展字段 */
+  // 左側展開收起
   collapsed: boolean; 
-  // 头部固定开启
+  // 頭部固定開啓
   headFixed: boolean;
-  // tab菜单开启
+  // tab菜單開啓
   tabNavEnable: boolean;
-  // 头部tab导航列表
+  // 頭部tab導航列錶
   headTabNavList: TabNavItem[];  
 
-  /* 以下是针对 IndexLayout 扩展字段 */
-  // 顶部菜单开启
+  /* 以下是針對 IndexLayout 擴展字段 */
+  // 頂部菜單開啓
   topNavEnable: boolean;
 
-  /* 以下是针对 UniversalLayout 扩展字段 */
-  // 模板主题
+  /* 以下是針對 UniversalLayout 擴展字段 */
+  // 模闆主題
   theme: Theme;
-  // 头部固定开启
+  // 頭部固定開啓
   navMode: NavMode;
-  // 左侧侧边固定开启
+  // 左側側邊固定開啓
   leftSiderFixed: boolean;
 }
 
@@ -85,9 +85,9 @@ const StoreModel: ModuleType = {
       state.headTabNavList = payload;
     },
     /**
-     * 关闭当前tabNav，并跳转自定义路由
+     * 關閉當前tabNav，並跳轉自定義路由
      * @param state 
-     * @param payload RouteLocationRaw 跳转路由参数，必须
+     * @param payload RouteLocationRaw 跳轉路由參數，必須
      */
      closeCurrentHeadTabNav(state, payload: RouteLocationRaw) {
       const navList: TabNavItem[] =  state.headTabNavList.filter((item2: TabNavItem) => !equalTabNavRoute(router.currentRoute.value, item2.route, item2.menu.tabNavType))

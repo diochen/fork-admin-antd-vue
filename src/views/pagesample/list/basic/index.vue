@@ -1,13 +1,13 @@
 <template>
     <div class="layout-main-conent">
-        <a-card :bordered="false" title="友情链接">
+        <a-card :bordered="false" title="友情鏈接">
             <template #extra>
                     <a-radio-group defaultValue="all">
                         <a-radio-button value="all">全部</a-radio-button>
-                        <a-radio-button value="header">头部</a-radio-button>
+                        <a-radio-button value="header">頭部</a-radio-button>
                         <a-radio-button value="footer">底部</a-radio-button>
                     </a-radio-group>
-                    <a-input-search placeholder="请输入"  style="width:270px;margin-left: 16px;" />
+                    <a-input-search placeholder="請輸入"  style="width:270px;margin-left: 16px;" />
             </template>
 
             <a-button type="dashed" style="width:100%; margin-bottom: 8px;" @click="() => setCreateFormVisible(true)">
@@ -29,8 +29,8 @@
                 <template #renderItem="{ item }">
                     <a-list-item>
                         <template #actions>
-                            <a-button type="link" @click="() => detailUpdateData(item.id)" :loading="detailUpdateLoading.includes(item.id)">编辑</a-button>
-                            <a-button type="link" @click="() => deleteTableData(item.id)" :loading="deleteLoading.includes(item.id)">删除</a-button>
+                            <a-button type="link" @click="() => detailUpdateData(item.id)" :loading="detailUpdateLoading.includes(item.id)">編輯</a-button>
+                            <a-button type="link" @click="() => deleteTableData(item.id)" :loading="deleteLoading.includes(item.id)">刪除</a-button>
                         </template>
                         <a-list-item-meta>
                             <template #title>
@@ -41,7 +41,7 @@
                             </template>
                         </a-list-item-meta>
                         <div>
-                            <a-tag v-if="item.type === 'header'" color="green">头部</a-tag>
+                            <a-tag v-if="item.type === 'header'" color="green">頭部</a-tag>
                             <a-tag v-else color="cyan">底部</a-tag>
                         </div>
                     </a-list-item>
@@ -111,13 +111,13 @@ export default defineComponent({
 
         const store = useStore<{ ListBasic: ListStateType}>();
 
-        // 列表数据
+        // 列錶數據
         const list = computed<TableListItem[]>(() => store.state.ListBasic.tableData.list);
 
-        // 列表分页
+        // 列錶分頁
         const pagination = computed<PaginationConfig>(() => store.state.ListBasic.tableData.pagination);
 
-        // 获取数据
+        // 獲取數據
         const loading = ref<boolean>(true);
         const getList = async (current: number): Promise<void> => {
             loading.value = true;
@@ -129,14 +129,14 @@ export default defineComponent({
         }
 
 
-        // 新增弹框 - visible
+        // 新增彈框 - visible
         const createFormVisible = ref<boolean>(false);
         const setCreateFormVisible = (val: boolean) => {
             createFormVisible.value = val;
         };
-        // 新增弹框 - 提交 loading
+        // 新增彈框 - 提交 loading
         const createSubmitLoading = ref<boolean>(false);
-        // 新增弹框 - 提交
+        // 新增彈框 - 提交
         const createSubmit = async (values: Omit<TableListItem, 'id'>, resetFields: (newValues?: Props | undefined) => void) => {
             createSubmitLoading.value = true;
             const res: boolean = await store.dispatch('ListBasic/createTableData',values);
@@ -150,7 +150,7 @@ export default defineComponent({
         }
 
 
-        // 编辑弹框 - visible
+        // 編輯彈框 - visible
         const updateFormVisible = ref<boolean>(false);
         const setUpdateFormVisible = (val: boolean) => {
             updateFormVisible.value = val;
@@ -159,21 +159,21 @@ export default defineComponent({
             setUpdateFormVisible(false);
             store.commit('ListBasic/setUpdateData',{});
         }
-        // 编辑弹框 - 提交 loading
+        // 編輯彈框 - 提交 loading
         const updateSubmitLoading = ref<boolean>(false);
-        // 编辑弹框 - 提交
+        // 編輯彈框 - 提交
         const updateSubmit = async (values: TableListItem, resetFields: (newValues?: Props | undefined) => void) => {
             updateSubmitLoading.value = true;
             const res: boolean = await store.dispatch('ListBasic/updateTableData',values);
             if(res === true) {
                 updataFormCancel();                
-                message.success('编辑成功！');
+                message.success('編輯成功！');
                 getList(pagination.value.current);
             }
             updateSubmitLoading.value = false;
         }
 
-        // 编辑弹框 data
+        // 編輯彈框 data
         const updateData = computed<Partial<TableListItem>>(() => store.state.ListBasic.updateData);
         const detailUpdateLoading = ref<number[]>([]);
         const detailUpdateData = async (id: number) => {
@@ -185,21 +185,21 @@ export default defineComponent({
             detailUpdateLoading.value = [];
         }
 
-        // 删除 loading
+        // 刪除 loading
         const deleteLoading = ref<number[]>([]);
-        // 删除
+        // 刪除
         const deleteTableData = (id: number) => {
 
             Modal.confirm({
-                title: '删除',
-                content: '确定删除吗？',
-                okText: '确认',
+                title: '刪除',
+                content: '確定刪除嗎？',
+                okText: '確認',
                 cancelText: '取消',
                 onOk: async () => {
                     deleteLoading.value = [id];
                     const res: boolean = await store.dispatch('ListBasic/deleteTableData',id);
                     if (res === true) {
-                        message.success('删除成功！');
+                        message.success('刪除成功！');
                         getList(pagination.value.current);
                     }
                    deleteLoading.value = [];

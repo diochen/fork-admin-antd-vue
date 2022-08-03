@@ -2,22 +2,22 @@
     <div class="layout-main-conent">
       <a-card :bordered="false">
         <a-form :wrapper-col="{xs: { span: 24 },sm: { span: 12 }, md: { span: 10 },}" :label-col="{ xs: { span: 24 }, sm: { span: 7 } }" >
-            <a-form-item label="标题：" v-bind="validateInfos.title">
-                <a-input v-model:value="modelRef.title" placeholder="请输入" />
+            <a-form-item label="標題：" v-bind="validateInfos.title">
+                <a-input v-model:value="modelRef.title" placeholder="請輸入" />
             </a-form-item>
             <a-form-item label="起止日期" v-bind="validateInfos.date">
                 <a-range-picker v-model:value="modelRef.date" style="width:100%" />
             </a-form-item>
 
-            <a-form-item label="下拉选择" v-bind="validateInfos.select">
-                <a-select v-model:value="modelRef.select"  placeholder="请选择" allowClear>
+            <a-form-item label="下拉選擇" v-bind="validateInfos.select">
+                <a-select v-model:value="modelRef.select"  placeholder="請選擇" allowClear>
                     <a-select-option value="1">select1</a-select-option>
                     <a-select-option value="2">select2</a-select-option>
                     <a-select-option value="3">select3</a-select-option>
                 </a-select>
             </a-form-item>
 
-            <a-form-item label="单选按钮1">
+            <a-form-item label="單選按鈕1">
                 <a-radio-group  v-model:value="modelRef.radio1" >
                     <a-radio value="1">item 1</a-radio>
                     <a-radio value="2">item 2</a-radio>
@@ -25,7 +25,7 @@
                 </a-radio-group>
             </a-form-item>
 
-            <a-form-item label="单选按钮2"  v-bind="validateInfos.radio2">
+            <a-form-item label="單選按鈕2"  v-bind="validateInfos.radio2">
                 <a-radio-group  v-model:value="modelRef.radio2" >
                     <a-radio-button value="1">item 1</a-radio-button>
                     <a-radio-button value="2">item 2</a-radio-button>
@@ -33,7 +33,7 @@
                 </a-radio-group>
             </a-form-item>
 
-            <a-form-item label="复选框" v-bind="validateInfos.checkbox">
+            <a-form-item label="複選框" v-bind="validateInfos.checkbox">
                 <a-checkbox-group v-model:value="modelRef.checkbox">
                     <a-checkbox value="1" name="type">
                     Online
@@ -47,7 +47,7 @@
                 </a-checkbox-group>
             </a-form-item>
 
-            <a-form-item label="备注" v-bind="validateInfos.remark">
+            <a-form-item label="備註" v-bind="validateInfos.remark">
                 <a-textarea v-model:value="modelRef.remark" />
             </a-form-item>
 
@@ -92,7 +92,7 @@ export default defineComponent({
 
         const store = useStore<{FormBasic: FormStateType}>();
 
-        // 表单值
+        // 錶單值
         const modelRef = reactive<FormDataType>({
             title: '',
             date: [],
@@ -102,7 +102,7 @@ export default defineComponent({
             checkbox: [],
             remark: ''
         });
-        // 表单验证
+        // 錶單驗證
         const rulesRef = reactive({
             title: [
                 {
@@ -121,27 +121,27 @@ export default defineComponent({
             select: [
                 {
                     required: true,
-                    message: '请选择',
+                    message: '請選擇',
                 },
             ],  
             radio1: [],  
             radio2: [
                 {
                     required: true,
-                    message: '请选择',
+                    message: '請選擇',
                 },
             ],
             checkbox:[],
             remark: []       
         });
-        // 获取表单内容
+        // 獲取錶單內容
         const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef);
-        // 重置 validateInfos 如果用到国际化需要此步骤
+        // 重置 validateInfos 如果用到國際化需要此步驟
         //const validateInfosNew = useI18nAntdFormVaildateInfos(validateInfos);
 
-        // 登录loading
+        // 登入loading
         const submitLoading = ref<boolean>(false);
-        // 登录
+        // 登入
         const handleSubmit = async (e: MouseEvent) => {
             e.preventDefault();
             submitLoading.value = true;

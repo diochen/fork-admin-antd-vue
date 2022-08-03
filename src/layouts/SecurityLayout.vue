@@ -25,14 +25,14 @@ export default defineComponent({
         const router = useRouter();
         const store = useStore<{user: UserStateType}>();
 
-        // 获取当前登录用户信息
+        // 獲取當前登入用戶信息
         const currentUser = computed<CurrentUser>(()=> store.state.user.currentUser);
 
-        // 判断是否登录
+        // 判斷是否登入
         const isLogin = computed<boolean>(()=> currentUser.value ? currentUser.value.id > 0 : false);
 
-        // 读取当前用户信息func
-        const isReady = ref<boolean>(false); // 是否读取过用户信息
+        // 讀取當前用戶信息func
+        const isReady = ref<boolean>(false); // 是否讀取過用戶信息
         const loading = ref<boolean>(false);
         const getUser = async () => {
             loading.value = true;

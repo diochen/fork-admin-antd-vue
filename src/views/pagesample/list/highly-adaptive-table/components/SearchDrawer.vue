@@ -10,17 +10,17 @@
         
         <a-form layout="vertical"  :wrapper-col="{span:24}">
             <a-form-item label="位置" v-bind="validateInfos.type">
-                <TypeSelect v-model:value="modelRef.type" placeholder="请选择" />
+                <TypeSelect v-model:value="modelRef.type" placeholder="請選擇" />
             </a-form-item>
-            <a-form-item label="名称" v-bind="validateInfos.name">
-                <a-input v-model:value="modelRef.name" placeholder="请输入名称" />
+            <a-form-item label="名稱" v-bind="validateInfos.name">
+                <a-input v-model:value="modelRef.name" placeholder="請輸入名稱" />
             </a-form-item>
-            <a-form-item label="网址" v-bind="validateInfos.href">
-                <a-input v-model:value="modelRef.href" placeholder="请输入网址" />
+            <a-form-item label="網址" v-bind="validateInfos.href">
+                <a-input v-model:value="modelRef.href" placeholder="請輸入網址" />
             </a-form-item>
 
-            <a-form-item label="备注" v-bind="validateInfos.desc">
-                <a-input v-model:value="modelRef.desc" placeholder="请输入备注" />
+            <a-form-item label="備註" v-bind="validateInfos.desc">
+                <a-input v-model:value="modelRef.desc" placeholder="請輸入備註" />
             </a-form-item>
         </a-form>
 
@@ -67,7 +67,7 @@ export default defineComponent({
         },
         title: {
             type: String,
-            default: '高级搜索'
+            default: '高級搜索'
         },
         onClose: {
             type: Function,
@@ -83,21 +83,21 @@ export default defineComponent({
     },
     setup(props) {
 
-        // 表单值
+        // 錶單值
         const modelRef = reactive<Omit<TableListItem, 'id'>>({
             name: '',
             desc: '',
             href: '',
             type: ''
         });
-        // 表单验证
+        // 錶單驗證
         const rulesRef = reactive({
             name: [],
             desc: [], 
             href: [],
             type: []         
         });
-        // 获取表单内容
+        // 獲取錶單內容
         const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef);
 
         const onSearch = async () => {

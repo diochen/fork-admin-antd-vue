@@ -89,44 +89,44 @@ export default defineComponent({
       }>(); 
       const route = useRoute();
 
-      // 所有菜单路由
+      // 所有菜單路由
       const menuData: RoutesDataItem[] = vueRoutes(IndexLayoutRoutes);   
       
-      // 框架所有的路由转成json并统一添加了parentPath
+      // 框架所有的路由轉成json並統一添加了parentPath
       const jsonPathRoutes: PathJsonRoutesDataItem = jsonPathVueRoutes(menuData);
 
-      // 当前路由 item
+      // 當前路由 item
       const routeItem = computed<RoutesDataItem>(()=> getJsonRouteItem(route.path, jsonPathRoutes));
 
-      // 有权限的菜单
+      // 有權限的菜單
       const permissionMenuData = computed<RoutesDataItem[]>(()=> getPermissionMenuData(store.state.user.currentUser.roles, menuData));
 
-      // 当前路由的顶部菜单path
+      // 當前路由的頂部菜單path
       const belongTopMenu = computed<string>(()=>getRouteBelongTopMenu(routeItem.value))
 
-      // 收缩左侧
+      // 收縮左側
       const collapsed = computed<boolean>(()=> store.state.global.collapsed);
       const toggleCollapsed = (): void => {
         store.commit('global/changeLayoutCollapsed', !collapsed.value);
       }
 
-      // 右侧顶部tabNav是否开启
+      // 右側頂部tabNav是否開啓
       const tabNavEnable = computed<boolean>(()=> store.state.global.tabNavEnable);
 
-      // 右侧顶部导航是否开启
+      // 右側頂部導航是否開啓
       const topNavEnable = computed<boolean>(()=> store.state.global.topNavEnable);
 
-      // 右侧顶部是否固定
+      // 右側頂部是否固定
       const headFixed = computed<boolean>(()=> store.state.global.headFixed);
 
 
-      // 左侧选择菜单key
+      // 左側選擇菜單key
       const selectedKeys = computed<string[]>(()=>{
         const selectedKey = getSelectLeftMenuPath(routeItem.value);
         return [selectedKey]
       });
 
-      // 左侧展开菜单keys
+      // 左側展開菜單keys
       const leftOpenKeys = ref<string[]>(routeItem.value.parentPath || []);
       watch([routeItem,collapsed],()=>{
         const parentPath = routeItem.value.parentPath || [];
@@ -140,15 +140,15 @@ export default defineComponent({
       })
 
 
-      // 左侧菜单展开收起
+      // 左側菜單展開收起
       const onOpenChange = (key: any) => {
         leftOpenKeys.value = key;
       }
 
-      // 面包屑导航
+      // 麵包屑導航
       const breadCrumbs = computed<BreadcrumbType[]>(() => getBreadcrumbRoutes(route.path, jsonPathRoutes));
 
-      // 设置title
+      // 設定title
       useTitle(routeItem);
 
 

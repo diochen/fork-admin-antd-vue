@@ -1,19 +1,19 @@
 /**
- * 自定义 token 操作
+ * 自定義 token 操作
  * @author LiQingSong
  */
 import localforage from 'localforage';
 import settings from '@/config/settings';
 
 /**
- * 获取本地Token
+ * 獲取在地Token
  */
 export const getToken = async (): Promise<string | null> => {
   return await localforage.getItem(settings.siteTokenKey);
 };
 
 /**
- * 设置存储本地Token
+ * 設定存儲在地Token
  */
 export const setToken = async (token: string): Promise<boolean> => {
   try {
@@ -25,7 +25,7 @@ export const setToken = async (token: string): Promise<boolean> => {
 };
 
 /**
- * 移除本地Token
+ * 移除在地Token
  */
 export const removeToken = async (): Promise<boolean> => {
   try {

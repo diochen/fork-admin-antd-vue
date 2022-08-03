@@ -51,9 +51,9 @@ const StoreModel: ModuleType = {
             if (msg === '') {
                 return true; // 成功
             } else if (typeof msg === 'undefined') {
-                return undefined; // 服务器错误
+                return undefined; // 服務器錯誤
             } else {
-                return false; // 自定义错误
+                return false; // 自定義錯誤
             }
         }
     }

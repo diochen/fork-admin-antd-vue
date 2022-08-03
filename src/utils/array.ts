@@ -1,7 +1,7 @@
 /**
- * 数组合并并去重
- * @param arr1 数组1
- * @param arr2 数组2
+ * 數組合並並去重
+ * @param arr1 數組1
+ * @param arr2 數組2
  */
 export function mergeUnique<T>(arr1: Array<T>, arr2: Array<T>): Array<T> {
   const arr: Array<T> = arr1;
@@ -15,8 +15,8 @@ export function mergeUnique<T>(arr1: Array<T>, arr2: Array<T>): Array<T> {
 }
 
 /**
- * 数组去重
- * @param arr 数组
+ * 數組去重
+ * @param arr 數組
  */
 export function unique<T>(arr: Array<T>): Array<T> {
   const array: Array<T> = [];

@@ -1,13 +1,13 @@
 export default {
-  'page.user.register.form-item-username': '用户名',
-  'page.user.register.form-item-username.required': '请输入用户名',
-  'page.user.register.form-item-password': '密码',
-  'page.user.register.form-item-password.required': '请输入密码',
-  'page.user.register.form-item-confirmpassword': '确认密码',
+  'page.user.register.form-item-username': '用戶名',
+  'page.user.register.form-item-username.required': '請輸入用戶名',
+  'page.user.register.form-item-password': '密碼',
+  'page.user.register.form-item-password.required': '請輸入密碼',
+  'page.user.register.form-item-confirmpassword': '確認密碼',
   'page.user.register.form-item-confirmpassword.compare':
-    '您输入的两个密码不匹配！',
-  'page.user.register.form.title': '注册账户',
-  'page.user.register.form.btn-submit': '注册',
-  'page.user.register.form.btn-jump': '已有账户？现在登录！',
-  'page.user.register.form.register-success': '注册成功，请登录！',
+    '您輸入的兩個密碼不匹配！',
+  'page.user.register.form.title': '註冊賬戶',
+  'page.user.register.form.btn-submit': '註冊',
+  'page.user.register.form.btn-jump': '已有賬戶？現在登入！',
+  'page.user.register.form.register-success': '註冊成功，請登入！',
 };

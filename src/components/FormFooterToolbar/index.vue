@@ -1,6 +1,6 @@
 <script lang="ts">
 /**
- * 表单页面 底部
+ * 錶單頁麵 底部
  * @author LiQingSong
  *
  * */

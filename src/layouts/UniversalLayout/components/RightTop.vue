@@ -86,19 +86,19 @@ const { menuData, routeItem, breadCrumbs } = toRefs(props)
 
 const store = useStore<{global: GlobalStateType;}>()
 
-// 模板主题
+// 模闆主題
 const theme = computed<any>(()=> store.state.global.theme)
 
-// 导航模式
+// 導航模式
 const navMode = computed(()=> store.state.global.navMode)
 
-// 头部是否固定
+// 頭部是否固定
 const headFixed = computed(()=> store.state.global.headFixed)
 
-// 右侧顶部tabNav是否开启
+// 右側頂部tabNav是否開啓
 const tabNavEnable = computed<boolean>(()=> store.state.global.tabNavEnable);
 
-// 收缩左侧
+// 收縮左側
 const collapsed = computed<boolean>(()=> store.state.global.collapsed)
 const toggleCollapsed = (): void => {
   store.commit('global/changeLayoutCollapsed', !collapsed.value)

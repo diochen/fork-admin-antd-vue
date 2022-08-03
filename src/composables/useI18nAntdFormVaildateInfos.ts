@@ -1,5 +1,5 @@
 /**
- * 重置 Antd Form VaildateInfos 为 I18n
+ * 重置 Antd Form VaildateInfos 為 I18n
  * @author LiQingSong
  */
 import { computed, ComputedRef } from 'vue';

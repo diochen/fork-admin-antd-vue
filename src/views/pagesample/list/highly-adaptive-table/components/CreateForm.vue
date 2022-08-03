@@ -13,17 +13,17 @@
         
         <a-form :labelCol="{ span: 4 }" :wrapper-col="{span:20}">
             <a-form-item label="位置" v-bind="validateInfos.type">
-                <TypeSelect v-model:value="modelRef.type" placeholder="请选择" />
+                <TypeSelect v-model:value="modelRef.type" placeholder="請選擇" />
             </a-form-item>
-            <a-form-item label="名称" v-bind="validateInfos.name">
-                <a-input v-model:value="modelRef.name" placeholder="请输入名称" />
+            <a-form-item label="名稱" v-bind="validateInfos.name">
+                <a-input v-model:value="modelRef.name" placeholder="請輸入名稱" />
             </a-form-item>
-            <a-form-item label="网址" v-bind="validateInfos.href">
-                <a-input v-model:value="modelRef.href" placeholder="请输入网址" />
+            <a-form-item label="網址" v-bind="validateInfos.href">
+                <a-input v-model:value="modelRef.href" placeholder="請輸入網址" />
             </a-form-item>
 
-            <a-form-item label="备注" v-bind="validateInfos.desc">
-                <a-input v-model:value="modelRef.desc" placeholder="请输入备注" />
+            <a-form-item label="備註" v-bind="validateInfos.desc">
+                <a-input v-model:value="modelRef.desc" placeholder="請輸入備註" />
             </a-form-item>
         </a-form>
 
@@ -75,23 +75,23 @@ export default defineComponent({
 
         const { t } = useI18n();
 
-        // 表单值
+        // 錶單值
         const modelRef = reactive<Omit<TableListItem, 'id'>>({
             name: '',
             desc: '',
             href: '',
             type: ''
         });
-        // 表单验证
+        // 錶單驗證
         const rulesRef = reactive({
             name: [
                 {
                     required: true,
                     validator: async (rule: any, value: string) => {
                         if (value === '' || !value) {
-                            throw new Error('请输入名称');
+                            throw new Error('請輸入名稱');
                         } else if (value.length > 15) {
-                            throw new Error('长度不能大于15个字');
+                            throw new Error('長度不能大於15個字');
                         }
                     }
                 },
@@ -102,9 +102,9 @@ export default defineComponent({
                     required: true,
                     validator: async (rule: any, value: string) => {
                         if (value === '' || !value) {
-                            throw new Error('请输入网址');
+                            throw new Error('請輸入網址');
                         } else if (!/^(https?:)/.test(value)) {
-                            throw new Error('请输入正确的网址');
+                            throw new Error('請輸入正確的網址');
                         }
                     },
                 },
@@ -112,11 +112,11 @@ export default defineComponent({
             type: [
                 {
                     required: true,
-                    message: '请选择'
+                    message: '請選擇'
                 }
             ]         
         });
-        // 获取表单内容
+        // 獲取錶單內容
         const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef);
         // 提交
         const onFinish = async () => {           

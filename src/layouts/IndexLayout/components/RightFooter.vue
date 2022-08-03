@@ -16,10 +16,10 @@
           Github
         </a>
         <a href="http://liqingsong.cc" target="_blank" rel="noreferrer">
-          博客
+          部落格
         </a>
         <a href="http://www.wyxgn.com" target="_blank" rel="noreferrer">
-          网页小功能
+          網頁小功能
         </a>
       </div>
       <div>Copyright © 2020 LIQINGSONG.CC, All Rights Reserved</div>

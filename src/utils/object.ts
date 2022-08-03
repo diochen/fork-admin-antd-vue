@@ -1,5 +1,5 @@
 /**
- * 浅比较两个object, json的key是否一致
+ * 淺比較兩個object, json的key是否一緻
  * @param obj1 
  * @param obj2 
  * @returns 
@@ -23,7 +23,7 @@ export function equalObjectKey(obj1: Object, obj2: Object): boolean{
 }
 
 /**
- * 浅比较两个对象是否相等，这两个对象的值只能是数字或字符串
+ * 淺比較兩個對象是否相等，這兩個對象的值隻能是數字或字符串
  * @param obj1 
  * @param obj2 
  * @returns 

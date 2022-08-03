@@ -8,8 +8,8 @@ export type EChartsOption = echarts.EChartsOption;
  * Echarts composables
  * @param labRef Ref                 HTMLDivElement ref
  * @param initOption EChartOption    echarts option init
- * @param cb Function|undefined      回调函数 读取数据
- * @param theme string|undefined     使用的主题
+ * @param cb Function|undefined      回調函數 讀取數據
+ * @param theme string|undefined     使用的主題
  * @returns 
  * @author LiQingSong
  */

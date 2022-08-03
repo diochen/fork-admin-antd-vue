@@ -1,5 +1,5 @@
 /**
- * 自定义 request 网络请求工具,基于axios
+ * 自定義 request 網路請求工具,基於axios
  * @author LiQingSong
  */
 import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
@@ -16,28 +16,28 @@ export interface ResponseData {
 }
 
 const customCodeMessage: {[key: number]: string} = {
-  10002: '当前用户登入信息已失效，请重新登入再操作', // 未登陆
+  10002: '當前用戶登入信息已失效，請重新登入再操作', // 未登陸
 };
 
 const serverCodeMessage: {[key: number]: string} = {
-  200: '服务器成功返回请求的数据',
+  200: '服務器成功返回請求的數據',
   400: 'Bad Request',
   401: 'Unauthorized',
   403: 'Forbidden',
   404: 'Not Found',
-  500: '服务器发生错误，请检查服务器(Internal Server Error)',
-  502: '网关错误(Bad Gateway)',
-  503: '服务不可用，服务器暂时过载或维护(Service Unavailable)',
-  504: '网关超时(Gateway Timeout)',
+  500: '服務器發生錯誤，請檢查服務器(Internal Server Error)',
+  502: '網關錯誤(Bad Gateway)',
+  503: '服務不可用，服務器暫時過載或維護(Service Unavailable)',
+  504: '網關超時(Gateway Timeout)',
 };
 
 /**
- * 异常处理程序
+ * 異常處理程式
  */
 const errorHandler = (error: any) => {
     const { response, message } = error;
     if (message === 'CustomError') {
-        // 自定义错误
+        // 自定義錯誤
         const { config, data } = response;
         const { url, baseURL} = config;
         const { code, msg } = data;
@@ -54,20 +54,20 @@ const errorHandler = (error: any) => {
             }
         }
     } else if (message === 'CancelToken') {
-        // 取消请求 Token
+        // 取消請求 Token
         // eslint-disable-next-line no-console
         console.log(message);
     } else if (response && response.status) {
         const errorText = serverCodeMessage[response.status] || response.statusText;
         const { status, request } = response;
         notification.error({
-            message: `请求错误 ${status}: ${request.responseURL}`,
+            message: `請求錯誤 ${status}: ${request.responseURL}`,
             description: errorText,
         });
     } else if (!response) {
         notification.error({
-            description: '您的网络发生异常，无法连接服务器',
-            message: '网络异常',
+            description: '您的網路發生異常，無法連接服務器',
+            message: '網路異常',
         });
     }
 
@@ -75,30 +75,30 @@ const errorHandler = (error: any) => {
 }
 
 /**
- * 配置request请求时的默认参数
+ * 配置request請求時的預設參數
  */
 const request = axios.create({
     baseURL: (import.meta.env.VITE_APP_APIHOST || '') as string, // url = api url + request url
-    withCredentials: true, // 当跨域请求时发送cookie
-    timeout: 0 // 请求超时时间,5000(单位毫秒) / 0 不做限制
+    withCredentials: true, // 當跨域請求時發送cookie
+    timeout: 0 // 請求超時時間,5000(單位毫秒) / 0 不做限製
 });
 
-// 全局设置 - post请求头
+// 全局設定 - post請求頭
 // request.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 /**
- * 请求前
- * 请求拦截器
+ * 請求前
+ * 請求攔截器
  */
 request.interceptors.request.use(
     async (config: AxiosRequestConfig & { cType?: boolean }) => {
 
-        // 如果设置了cType 说明是自定义 添加 Content-Type类型 为自定义post 做铺垫
+        // 如果設定了cType 說明是自定義 添加 Content-Type類型 為自定義post 做鋪墊
         if (config['cType']) {
             config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
         }
 
-        // 自定义添加token header
+        // 自定義添加token header
         const headerToken = await getToken();
         if (headerToken) {
             config.headers[settings.ajaxHeadersTokenKey] = headerToken;
@@ -110,8 +110,8 @@ request.interceptors.request.use(
 );
 
 /**
- * 请求后
- * 响应拦截器
+ * 請求後
+ * 回響攔截器
  */
 request.interceptors.response.use(
     async (response: AxiosResponse) => {
@@ -119,7 +119,7 @@ request.interceptors.response.use(
         const res: ResponseData = response.data;
         const { code, token } = res;
 
-        // 自定义状态码验证
+        // 自定義狀態碼驗證
         if (code !== 0) {
             return Promise.reject({
                 response,
@@ -138,11 +138,11 @@ request.interceptors.response.use(
 );
 
 /** 
- * ajax 导出
+ * ajax 導出
  * 
  * Method: get
  *     Request Headers
- *         无 - Content-Type
+ *         無 - Content-Type
  *     Query String Parameters
  *         name: name
  *         age: age

@@ -55,7 +55,7 @@ export function findSvgFile(dir: string, idPerfix: string = 'icon-'): string[] {
 
 
 /**
- * 自动导入 @/assets/iconsvg 下svg文件 vite Plugin
+ * 自動導入 @/assets/iconsvg 下svg文件 vite Plugin
  * @author LiQingSong
  */
 export function vitePluginIconSvg(): Plugin {
